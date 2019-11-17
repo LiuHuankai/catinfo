@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/viewPager"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#888"/>
+
+    <com.lzy.widget.AlphaIndicator
+        android:id="@+id/alphaIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@drawable/cats"
+            app:av_tabIconSelected="@drawable/cats_selected"
+            app:av_tabText="猫咪"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#000000"
+            app:av_textColorSelected="#FFC0CB"/>
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@drawable/adoption"
+            app:av_tabIconSelected="@drawable/adoption_selected"
+            app:av_tabText="领养"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#000000"
+            app:av_textColorSelected="#FFC0CB"/>
+
+        <com.lzy.widget.AlphaView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:av_tabIconNormal="@drawable/about"
+            app:av_tabIconSelected="@drawable/about_selected"
+            app:av_tabText="我的"
+            app:av_tabTextSize="14sp"
+            app:av_textColorNormal="#000000"
+            app:av_textColorSelected="#FFC0CB"/>
+
+
+    </com.lzy.widget.AlphaIndicator>
+
+</LinearLayout>
