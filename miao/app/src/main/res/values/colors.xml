@@ -3,4 +3,73 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- Mine -->
+    <color name="list_activity_news_search_bar_search_view_background_color">@color/middle_grey</color>
+    <color name="recommend_activity_news_search_bar_search_view_background_color">@color/middle_grey</color>
+
+    <!-- Project level resources -->
+    <color name="color_primary">@color/main_light</color>
+    <color name="color_primary_dark">@color/main_dark</color>
+    <color name="color_accent">#000000</color>
+    <color name="click_overlay">#F0F0F0</color>
+    <color name="default_hint">#C6C6CB</color>
+    <color name="material_bottom_sheet_title">#8a000000</color>
+    <color name="material_bottom_sheet_item">#DE000000</color>
+
+    <!-- main color-->
+    <color name="white">#FFFFFF</color>
+    <color name="main_light">#FF6D6B</color>
+    <color name="black">#000000</color>
+    <color name="main_dark">#D9676E</color>
+    <color name="light_grey">#F7F7F7</color>
+    <color name="middle_grey">#F4F2F4</color>
+    <color name="dark_grey">#E1E1E1</color>
+    <color name="darker_grey">#B0B0B0</color>
+    <color name="text_grey">#B0B0B0</color>
+    <color name="dark_blue">#040C16</color>
+    <color name="orange">#F78462</color>
+    <color name="red">#E73D3B</color>
+    <color name="purple">#BD4CBE</color>
+    <color name="black_grey">#E1242424</color>
+    <color name="black_light">#666666</color>
+
+    <!-- LoginActivity -->
+    <color name="login_activity_login_constraint_layout_background_color">@color/white</color>
+    <color name="login_activity_log_in_text_view_text_color">@color/main_light</color>
+    <color name="login_activity_welcome_back_text_view_text_color">@color/main_light</color>
+    <color name="login_activity_login_fields_constraint_layout_background_color">@color/white</color>
+    <color name="login_activity_input_nickname_edit_text_background_color">@android:color/transparent</color>
+    <color name="login_activity_input_nickname_edit_text_text_color">@color/black</color>
+    <color name="login_activity_separator_constraint_layout_background_color">@color/black</color>
+    <color name="login_activity_input_password_edit_text_background_color">@android:color/transparent</color>
+    <color name="login_activity_input_password_edit_text_text_color">@color/black</color>
+    <color name="login_activity_login_button_background_color">@color/main_light</color>
+    <color name="login_activity_login_button_text_color">@color/white</color>
+    <color name="login_activity_forgot_your_password_button_text_color">@color/white</color>
+    <color name="login_activity_forgot_your_password_button_text_color_pink">@color/main_light</color>
+    <color name="login_activity_toolbar_background_color">@color/white</color>
+
+    <!-- SignupActivity -->
+    <color name="signup_activity_signup_constraint_layout_background_color">@color/white</color>
+    <color name="signup_activity_sign_up_text_view_text_color">@color/main_light</color>
+    <color name="signup_activity_welcome_text_view_text_color">@color/main_light</color>
+    <color name="signup_activity_sign_up_fields_constraint_layout_background_color">@color/white</color>
+    <color name="signup_activity_signup_nickname_edit_text_background_color">@android:color/transparent</color>
+    <color name="signup_activity_signup_nickname_edit_text_text_color">@color/black</color>
+    <color name="signup_activity_separator_constraint_layout_background_color">@color/black</color>
+    <color name="signup_activity_signup_space_edit_text_background_color">@android:color/transparent</color>
+    <color name="signup_activity_signup_space_edit_text_text_color">@color/black</color>
+    <color name="signup_activity_separator_two_constraint_layout_background_color">@color/black</color>
+    <color name="signup_activity_signup_password_edit_text_background_color">@android:color/transparent</color>
+    <color name="signup_activity_signup_password_edit_text_text_color">@color/black</color>
+    <color name="signup_activity_i_agree_with_interga_text_view_text_color">@color/main_light</color>
+    <color name="signup_activity_agree_switch_active_color">@color/main_light</color>
+    <color name="signup_activity_agree_switch_thumb_tint">@color/white</color>
+    <color name="signup_activity_sign_up_button_background_color">@color/main_light</color>
+    <color name="signup_activity_sign_up_button_text_color">@color/white</color>
+    <color name="signup_activity_already_gave_up_your_text_view_text_color">@color/main_light</color>
+    <color name="signup_activity_log_in_button_text_color">@color/red</color>
+    <color name="signup_activity_toolbar_background_color">@color/white</color>
+
 </resources>

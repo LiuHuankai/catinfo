@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LoginActivity -->
+    <style name="LoginActivityTheme" parent="AppTheme"/>
+
+    <!-- SignupActivity -->
+    <style name="SignupActivityTheme" parent="AppTheme"/>
+    <style name="SignupActivityAgreeSwitchTheme">
+        <item name="colorControlActivated">@color/signup_activity_agree_switch_active_color</item>
+    </style>
+</resources>
