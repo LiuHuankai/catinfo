@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.cat.miao.TextFragment;
+import com.cat.miao.view.catfragment.CatFragment;
 import com.cat.miao.view.userfragment.UserFragment;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class MainAdapter extends FragmentPagerAdapter {
 
         super(fm);
 
-        fragments.add(TextFragment.newInstance(titles[0]));
+        fragments.add(CatFragment.getInstance());
 
         fragments.add(TextFragment.newInstance(titles[1]));
 

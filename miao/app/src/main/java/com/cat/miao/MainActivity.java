@@ -3,7 +3,10 @@ package com.cat.miao;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.cat.miao.view.MainAdapter;
 import com.lzy.widget.AlphaIndicator;

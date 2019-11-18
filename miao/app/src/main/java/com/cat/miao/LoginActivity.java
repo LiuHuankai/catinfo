@@ -1,21 +1,11 @@
-package com.cat.miao.view.Loginfragment;
+package com.cat.miao;
 
-import android.animation.*;
-import android.graphics.Color;
-import android.widget.EditText;
 import android.view.View;
 
-import androidx.appcompat.widget.Toolbar;
-import android.widget.TextView;
-import android.widget.LinearLayout;
 import android.os.Bundle;
-import android.view.MenuItem;
-import androidx.core.view.animation.PathInterpolatorCompat;
 import android.content.Intent;
-import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Context;
-import com.cat.miao.R;
 
 public class LoginActivity extends AppCompatActivity{
     @Override
