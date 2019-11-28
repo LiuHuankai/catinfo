@@ -22,9 +22,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-/**
- * Created by Vmmet on 2016/7/28.
- */
 public class SvgUtil {
     private String path;
     private Context context;
@@ -42,12 +39,12 @@ public class SvgUtil {
             InputStream inputStream= context.getResources().getAssets().open("china.svg");
             DocumentBuilder mybuilder= DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document myDoc=mybuilder.parse(inputStream);
-            //找到根Element
+
             Element root=myDoc.getDocumentElement();
             NodeList items1 = root.getElementsByTagName("g");
             Element groot=(Element)items1.item(0);
             NodeList items2 = groot.getElementsByTagName("path");
-            //遍历每一个省份
+
             if (items2.getLength()>0){
             List<ProvinceModel> list=new ArrayList<>();
             SvgPathParserUtil svg=new SvgPathParserUtil();
@@ -57,13 +54,13 @@ public class SvgUtil {
                 String PathPoints=ele_Province.getAttribute("d");
                 String name=ele_Province.getAttribute("title");
                 List<Path> listpath=new ArrayList<>();
-                //拿到每个省的path集合
+
                 String s[]=PathPoints.split("z");
                 for(String ss:s){
                     ss+="z";
                     listpath.add(svg.parsePath(ss));
                 }
-                //拿到name和path
+
                 provinceModel.setName(name);
                 provinceModel.setListpath(listpath);
                 provinceModel.setColor(Color.WHITE);

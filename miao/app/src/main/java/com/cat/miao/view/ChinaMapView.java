@@ -20,9 +20,6 @@ import com.cat.miao.model.ProvinceModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Vmmet on 2016/8/4.
- */
 public class ChinaMapView extends View {
     private float viewWidth;
     private Paint innerPaint,outerPaint;
@@ -46,7 +43,6 @@ public class ChinaMapView extends View {
                     }
                 }
                 }
-
         }
     };
     private onProvinceClickLisener onProvinceClickLisener;

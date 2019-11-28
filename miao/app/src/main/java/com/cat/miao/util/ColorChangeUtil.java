@@ -8,9 +8,6 @@ import com.cat.miao.model.ProvinceModel;
 
 import java.util.HashMap;
 
-/**
- * Created by Vmmet on 2016/11/1.
- */
 public class ColorChangeUtil {
         private static HashMap<String, String> hashmap;
 public static String province_datas[]={"北京市_17.58_6.87_427_1435","天津市_7.29_11.75_376_1208",
@@ -80,7 +77,7 @@ public static String province_datas[]={"北京市_17.58_6.87_427_1435","天津�
             }
 
     }
-    //最小值，之间间隔，type
+
     public static void getMapColors(ChinaMapModel mymap,float min,float average,int type){
         for (ProvinceModel p:mymap.getProvinceslist()){
             if (hashmap.containsKey(p.getName())){

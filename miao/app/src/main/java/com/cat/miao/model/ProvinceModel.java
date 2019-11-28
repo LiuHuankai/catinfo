@@ -5,9 +5,6 @@ import android.graphics.Region;
 
 import java.util.List;
 
-/**
- * Created by Vmmet on 2016/7/29.
- */
 public class ProvinceModel {
     private String name;
     private int color;

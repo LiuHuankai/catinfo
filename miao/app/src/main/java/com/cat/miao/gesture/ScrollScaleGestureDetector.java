@@ -7,7 +7,6 @@ import android.graphics.RectF;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**缩放平移手势帮助类*/
 public class ScrollScaleGestureDetector {
     private float beforeLength ,afterLength ;	// 两触点距离
     private float downX ;	//单触点x坐标

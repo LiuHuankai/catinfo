@@ -116,7 +116,7 @@
 
 
         <Button
-            android:id="@+id/mynew"
+            android:id="@+id/myinfo"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@android:color/transparent"
@@ -129,7 +129,7 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/mycat"
+            android:id="@+id/myfocus"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@android:color/transparent"
@@ -142,7 +142,7 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/myfish"
+            android:id="@+id/setting"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@android:color/transparent"
@@ -155,7 +155,7 @@
             android:textColor="#a7a7a7"/>
 
         <Button
-            android:id="@+id/mymissingcat"
+            android:id="@+id/aboutus"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@android:color/transparent"

@@ -2,9 +2,6 @@ package com.cat.miao.model;
 
 import java.util.List;
 
-/**
- * Created by Vmmet on 2016/7/29.
- */
 public class ChinaMapModel {
     private float Max_x;
     private float Min_x;

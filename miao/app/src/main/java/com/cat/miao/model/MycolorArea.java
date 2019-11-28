@@ -1,8 +1,5 @@
 package com.cat.miao.model;
 
-/**
- * Created by Vmmet on 2016/9/29.
- */
 public class MycolorArea {
     private int color;
     private String text;

@@ -159,6 +159,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_fields_constraint_layout" />
 
+    <TextView
+        android:id="@+id/already_gave_up_your_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/login_activity_no_account_bottom"
+        android:layout_marginStart="@dimen/login_activity_no_account_start"
+        android:gravity="center"
+        android:text="@string/login_activity_no_account"
+        android:fontFamily="@font/fzltxh"
+        android:textColor="@color/signup_activity_already_gave_up_your_text_view_text_color"
+        android:textSize="@dimen/signup_activity_already_gave_up_your_text_view_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="0dp"/>
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="@dimen/login_activity_sign_up_button_width"
+        android:layout_height="@dimen/login_activity_sign_up_button_height"
+        android:layout_marginBottom="@dimen/login_activity_sign_up_button_margin_bottom"
+        android:layout_marginEnd="@dimen/login_activity_sign_up_button_margin_end"
+        android:fontFamily="@font/fzltxh"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:text="@string/login_activity_sign_up_button_text"
+        android:textColor="@color/signup_activity_log_in_button_text_color"
+        android:textSize="@dimen/signup_activity_log_in_button_text_size"
+        android:onClick="jumptosignup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="0dp"/>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"

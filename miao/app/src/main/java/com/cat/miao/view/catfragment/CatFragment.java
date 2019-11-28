@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.cat.miao.R;
@@ -21,7 +21,6 @@ import com.cat.miao.view.ColorView;
 import com.cat.miao.util.SvgUtil;
 import com.cat.miao.view.ChinaMapView;
 import com.cat.miao.model.MycolorArea;
-import com.cat.miao.view.userfragment.UserFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +43,7 @@ public class CatFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.cat_fragment, container, false);
+        final View view = inflater.inflate(R.layout.cat_fragment, container, false);
 
         mapview = (ChinaMapView) view.findViewById(R.id.view);
         colorView = (ColorView) view.findViewById(R.id.colorView);
@@ -55,6 +54,13 @@ public class CatFragment extends Fragment {
 
         ColorChangeUtil.changeMapColors(myMap, ColorChangeUtil.nameStrings[0]);
         mapview.chingeMapColors();
+        mapview.setOnChoseProvince(new ChinaMapView.onProvinceClickLisener(){
+            @Override
+            public void onChose(String provincename) {
+                TextView text = (TextView) view.findViewById(R.id.textview);
+                text.setText("选择");
+            }
+        });
 
         return view;
     }

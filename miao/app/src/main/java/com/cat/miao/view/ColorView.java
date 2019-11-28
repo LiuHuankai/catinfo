@@ -11,9 +11,6 @@ import com.cat.miao.model.MycolorArea;
 
 import java.util.List;
 
-/**
- * Created by Vmmet on 2016/9/29.
- */
 public class ColorView extends View {
     private Paint colorPaint;
     private List<MycolorArea> list;
