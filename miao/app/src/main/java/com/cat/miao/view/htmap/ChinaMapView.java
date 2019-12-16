@@ -1,4 +1,4 @@
-package com.cat.miao.view;
+package com.cat.miao.view.htmap;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,12 +10,13 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.cat.miao.gesture.ScrollScaleGestureDetector;
-import com.cat.miao.model.ChinaMapModel;
-import com.cat.miao.model.ProvinceModel;
+import com.cat.miao.hotmapmodel.TjMapModel;
+import com.cat.miao.hotmapmodel.ProvinceModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ChinaMapView extends View {
     private Paint innerPaint,outerPaint;
     private boolean isFirst;
     private ScrollScaleGestureDetector scrollScaleGestureDetector;
-    private ChinaMapModel map;
+    private TjMapModel map;
     private float map_scale=0;
     private int selectPosition;
     private ScrollScaleGestureDetector.OnScrollScaleGestureListener onScrollScaleGestureListener=new ScrollScaleGestureDetector.OnScrollScaleGestureListener() {
@@ -38,6 +39,7 @@ public class ChinaMapView extends View {
                         map.getProvinceslist().get(selectPosition).setLinecolor(Color.GRAY);
                         p.setSelect(true);
                         p.setLinecolor(Color.BLACK);
+                        Log.e("error", "我找到了 " );
                         invalidate();
                         return;
                     }
@@ -45,6 +47,7 @@ public class ChinaMapView extends View {
                 }
         }
     };
+
     private onProvinceClickLisener onProvinceClickLisener;
     public ChinaMapView(Context context) {
         super(context);
@@ -86,7 +89,7 @@ public class ChinaMapView extends View {
         setMeasuredDimension(width, height);
     }
 
-    public void setMap(ChinaMapModel map){
+    public void setMap(TjMapModel map){
         this.map=map;
         isFirst=true;
         invalidate();

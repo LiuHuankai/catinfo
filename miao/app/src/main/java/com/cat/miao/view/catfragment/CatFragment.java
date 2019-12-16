@@ -3,31 +3,31 @@ package com.cat.miao.view.catfragment;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.cat.miao.R;
-import com.cat.miao.model.ChinaMapModel;
+import com.cat.miao.hotmapmodel.TjMapModel;
 import com.cat.miao.util.ColorChangeUtil;
-import com.cat.miao.view.ColorView;
+import com.cat.miao.view.htmap.ColorView;
 import com.cat.miao.util.SvgUtil;
-import com.cat.miao.view.ChinaMapView;
-import com.cat.miao.model.MycolorArea;
+import com.cat.miao.view.htmap.ChinaMapView;
+import com.cat.miao.hotmapmodel.MycolorArea;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 public class CatFragment extends Fragment {
     private ChinaMapView mapview;
-    private ChinaMapModel myMap;
+    private TjMapModel myMap;
     private Button changeType;
     private ColorView colorView;
     private int currentColor = 0;
@@ -50,6 +50,8 @@ public class CatFragment extends Fragment {
 
         setColorView();
 
+        Log.e("error", "你是dd" );
+
         initMap();
 
         ColorChangeUtil.changeMapColors(myMap, ColorChangeUtil.nameStrings[0]);
@@ -57,8 +59,6 @@ public class CatFragment extends Fragment {
         mapview.setOnChoseProvince(new ChinaMapView.onProvinceClickLisener(){
             @Override
             public void onChose(String provincename) {
-                TextView text = (TextView) view.findViewById(R.id.textview);
-                text.setText("选择");
             }
         });
 

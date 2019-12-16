@@ -1,4 +1,4 @@
-package com.cat.miao.view;
+package com.cat.miao.view.htmap;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.cat.miao.model.MycolorArea;
+import com.cat.miao.hotmapmodel.MycolorArea;
 
 import java.util.List;
 

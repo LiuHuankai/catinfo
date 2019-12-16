@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Path;
 
-import com.cat.miao.model.ChinaMapModel;
-import com.cat.miao.model.ProvinceModel;
+import com.cat.miao.hotmapmodel.TjMapModel;
+import com.cat.miao.hotmapmodel.ProvinceModel;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -33,10 +33,10 @@ public class SvgUtil {
     public SvgUtil(Context context){
         this.context=context;
     }
-    public ChinaMapModel getProvinces(){
-        ChinaMapModel map=new ChinaMapModel();
+    public TjMapModel getProvinces(){
+        TjMapModel map=new TjMapModel();
         try {
-            InputStream inputStream= context.getResources().getAssets().open("china.svg");
+            InputStream inputStream= context.getResources().getAssets().open("cathead.svg");
             DocumentBuilder mybuilder= DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document myDoc=mybuilder.parse(inputStream);
 

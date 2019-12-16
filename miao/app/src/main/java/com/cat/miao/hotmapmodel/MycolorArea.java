@@ -1,4 +1,4 @@
-package com.cat.miao.model;
+package com.cat.miao.hotmapmodel;
 
 public class MycolorArea {
     private int color;

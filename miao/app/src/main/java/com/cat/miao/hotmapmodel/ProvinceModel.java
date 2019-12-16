@@ -1,4 +1,4 @@
-package com.cat.miao.model;
+package com.cat.miao.hotmapmodel;
 
 import android.graphics.Path;
 import android.graphics.Region;

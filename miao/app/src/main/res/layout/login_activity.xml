@@ -60,7 +60,7 @@
             android:background="@color/login_activity_input_nickname_edit_text_background_color"
             android:fontFamily="@font/fzltxh"
             android:gravity="start|center_vertical"
-            android:hint="@string/login_activity_input_nickname_edit_text_hint"
+            android:hint="Your email or phone"
             android:inputType="text"
             android:maxLines="1"
             android:textColor="@color/login_activity_input_nickname_edit_text_text_color"

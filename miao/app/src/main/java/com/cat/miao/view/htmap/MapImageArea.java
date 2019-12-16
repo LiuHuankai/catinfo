@@ -1,4 +1,4 @@
-package com.cat.miao.view;
+package com.cat.miao.view.htmap;
 
 import android.content.Context;
 import android.graphics.Canvas;

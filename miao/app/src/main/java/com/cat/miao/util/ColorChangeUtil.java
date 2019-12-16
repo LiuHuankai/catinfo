@@ -1,10 +1,9 @@
 package com.cat.miao.util;
 
 import android.graphics.Color;
-import android.util.Log;
 
-import com.cat.miao.model.ChinaMapModel;
-import com.cat.miao.model.ProvinceModel;
+import com.cat.miao.hotmapmodel.TjMapModel;
+import com.cat.miao.hotmapmodel.ProvinceModel;
 
 import java.util.HashMap;
 
@@ -54,7 +53,7 @@ public static String province_datas[]={"北京市_17.58_6.87_427_1435","天津�
             "400~,500~,600~,700~," +
                     "800~,900~,1000~,1100~,1200~,1300~,"};
     public static String nameStrings[] = {"发电量增长率", "累计增长率","发电利用小时" ,"累计利用小时"};
-    public static void changeMapColors(ChinaMapModel mymap, String type){
+    public static void changeMapColors(TjMapModel mymap, String type){
             if (hashmap==null){
              hashmap=new HashMap();
              for (int i=0;i<province_datas.length;i++){
@@ -78,7 +77,7 @@ public static String province_datas[]={"北京市_17.58_6.87_427_1435","天津�
 
     }
 
-    public static void getMapColors(ChinaMapModel mymap,float min,float average,int type){
+    public static void getMapColors(TjMapModel mymap, float min, float average, int type){
         for (ProvinceModel p:mymap.getProvinceslist()){
             if (hashmap.containsKey(p.getName())){
                 if (hashmap.get(p.getName())!=null){
@@ -89,7 +88,7 @@ public static String province_datas[]={"北京市_17.58_6.87_427_1435","天津�
                     }else if (b>=textStrings[type].split(",").length-1){
                         b=textStrings[type].split(",").length-1;
                     }
-                    Log.v("b====",p.getName()+b);
+                    //Log.v("b====",p.getName()+b);
                     p.setColor(Color.parseColor(colorStrings[type].split(",")[b]));
                 }
             }

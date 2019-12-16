@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (c) ammap.com | SVG map of China - Low -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+	<defs>
+		<style type="text/css">
+			.land
+			{
+			fill: #CCCCCC;
+			fill-opacity: 1;
+			stroke:white;
+			stroke-opacity: 1;
+			stroke-width:0.5;
+			}
+		</style>
+
+		<amcharts:ammap projection="mercator" leftLongitude="73.554302" topLatitude="53.562517" rightLongitude="134.775703" bottomLatitude="18.153878"></amcharts:ammap>
+
+	</defs>
+	<g>
+
+		<path id="CN-50" title="重庆市" class="land" d="M203,361l-47,67c-13,8.4-29.6,20.9-46,39c-11.1,12.3-47.7,52.6-39,69c6.6,12.5,41.2,14.8,151-19
+	c28-11.7,56-23.3,84-35l6-60L203,361z"/>
+		<path id="CN-35" title="福建省" class="land" d="M205,356l107,61l113-30.5L358,311c-5.6-8.6-17.7-24.2-36-27c-12-1.8-23.4,2.3-56,25
+	C250.2,320,229,335.6,205,356z"/>
+		<path id="4" title="广东省" class="land" d="M212,524c-61,14.5-101.5,52.3-102,90c-0.1,7.8,1.5,20.1,11,35c53.3,7.7,106.7,15.3,160,23l31-117v-64L212,524z"/>
+		<path id="area1" title="广东省" class="land"  d="M320,424l105-28l45,111c15.5,42.6-4.5,88.3-40,104c-40.5,18-95.2-5.7-110-56C320,511.3,320,467.7,320,424z"/>
+
+
+	</g>
+</svg>

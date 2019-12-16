@@ -1,12 +1,13 @@
-package com.cat.miao.model;
+package com.cat.miao.hotmapmodel;
 
 import java.util.List;
 
-public class ChinaMapModel {
+public class TjMapModel {
     private float Max_x;
     private float Min_x;
     private float Max_y;
     private float Min_y;
+    private List<ProvinceModel> provinceslist;
 
     public float getMin_x() {
         return Min_x;
@@ -31,8 +32,6 @@ public class ChinaMapModel {
     public void setMin_y(float min_y) {
         Min_y = min_y;
     }
-
-    private List<ProvinceModel> provinceslist;
 
     public float getMax_x() {
         return Max_x;
