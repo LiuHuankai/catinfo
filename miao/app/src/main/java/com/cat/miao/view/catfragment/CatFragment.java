@@ -30,10 +30,7 @@ public class CatFragment extends Fragment {
     private TjMapModel myMap;
     private Button changeType;
     private ColorView colorView;
-    private int currentColor = 0;
-    private ListView province_listview;
     private HashMap<String, List<MycolorArea>> colorView_hashmap;
-    private List<String> list;
 
     public static CatFragment getInstance(){
         CatFragment catFragment = new CatFragment();
@@ -49,8 +46,6 @@ public class CatFragment extends Fragment {
         colorView = (ColorView) view.findViewById(R.id.colorView);
 
         setColorView();
-
-        Log.e("error", "你是dd" );
 
         initMap();
 
@@ -89,5 +84,4 @@ public class CatFragment extends Fragment {
         //传数据
         mapview.setMap(myMap);
     }
-
 }

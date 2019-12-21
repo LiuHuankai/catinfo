@@ -35,7 +35,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RxRetrofitForUserInfo {
-    private static final String Base_url="http://47.103.196.193:8030/";
+    private static final String Base_url="http://180.76.234.230:8020/";
     private static RxRetrofitForUserInfo utils=new RxRetrofitForUserInfo();
     UserInfoApi userInfoApi;
 

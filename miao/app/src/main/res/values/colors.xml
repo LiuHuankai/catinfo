@@ -3,6 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorBackground">#FFFFFF</color>
 
     <!-- Mine -->
     <color name="list_activity_news_search_bar_search_view_background_color">@color/middle_grey</color>

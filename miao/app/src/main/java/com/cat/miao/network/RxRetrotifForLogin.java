@@ -5,10 +5,6 @@ import android.util.Log;
 import com.cat.miao.MyApplication;
 import com.cat.miao.model.LoginApi;
 import com.cat.miao.model.LoginBean;
-import com.franmontiel.persistentcookiejar.ClearableCookieJar;
-import com.franmontiel.persistentcookiejar.PersistentCookieJar;
-import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
-import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.cookie.CookieJarImpl;
 import com.zhy.http.okhttp.cookie.store.PersistentCookieStore;
@@ -31,7 +27,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RxRetrotifForLogin {
-    private static final String Base_url="http://47.103.196.193:8030/";
+    private static final String Base_url="http://180.76.234.230:8020/";
     private static RxRetrotifForLogin utils=new RxRetrotifForLogin();
     LoginApi loginApi;
 
@@ -92,7 +88,7 @@ public class RxRetrotifForLogin {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("error", "死翘翘");
+                        //Log.d("error", "死翘翘");
                     }
 
                     @Override

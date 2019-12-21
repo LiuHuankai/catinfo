@@ -7,7 +7,7 @@ public class TjMapModel {
     private float Min_x;
     private float Max_y;
     private float Min_y;
-    private List<ProvinceModel> provinceslist;
+    private List<AreaModel> provinceslist;
 
     public float getMin_x() {
         return Min_x;
@@ -37,11 +37,11 @@ public class TjMapModel {
         return Max_x;
     }
 
-    public List<ProvinceModel> getProvinceslist() {
+    public List<AreaModel> getProvinceslist() {
         return provinceslist;
     }
 
-    public void setProvinceslist(List<ProvinceModel> provinceslist) {
+    public void setProvinceslist(List<AreaModel> provinceslist) {
         this.provinceslist = provinceslist;
     }
 

@@ -3,7 +3,7 @@ package com.cat.miao.util;
 import android.graphics.Color;
 
 import com.cat.miao.hotmapmodel.TjMapModel;
-import com.cat.miao.hotmapmodel.ProvinceModel;
+import com.cat.miao.hotmapmodel.AreaModel;
 
 import java.util.HashMap;
 
@@ -78,7 +78,7 @@ public static String province_datas[]={"北京市_17.58_6.87_427_1435","天津�
     }
 
     public static void getMapColors(TjMapModel mymap, float min, float average, int type){
-        for (ProvinceModel p:mymap.getProvinceslist()){
+        for (AreaModel p:mymap.getProvinceslist()){
             if (hashmap.containsKey(p.getName())){
                 if (hashmap.get(p.getName())!=null){
                     float a= Float.parseFloat( hashmap.get(p.getName()).split("_")[type+1]);

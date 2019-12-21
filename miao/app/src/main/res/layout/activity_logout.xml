@@ -1,0 +1,101 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_activity_login_constraint_layout_background_color">
+
+    <TextView
+        android:id="@+id/log_in_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/login_activity_log_in_text_view_margin_top"
+        android:fontFamily="@font/fzltxh"
+        android:gravity="center"
+        android:letterSpacing="-0.05"
+        android:text="账号管理"
+        android:textColor="@color/login_activity_log_in_text_view_text_color"
+        android:textSize="@dimen/login_activity_log_in_text_view_text_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:layout_width="@dimen/settings_activity_avatar_button_width"
+        android:layout_height="@dimen/settings_activity_avatar_button_height"
+        android:layout_marginBottom="308dp"
+        android:background="@drawable/photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_weight="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/logout_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/login_activity_login_button_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="184dp"
+        android:background="@drawable/login_activity_login_button_ripple"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_weight="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/login_activity_login_button_image_padding"
+            android:fontFamily="@font/fzltxh"
+            android:gravity="center"
+            android:text="登出"
+            android:textColor="@color/login_activity_login_button_text_color"
+            android:textSize="@dimen/login_activity_login_button_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/change_account_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/login_activity_login_button_height"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="84dp"
+        android:background="@drawable/login_activity_login_button_ripple"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="0.89"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/login_activity_login_button_image_padding"
+            android:fontFamily="@font/fzltxh"
+            android:gravity="center"
+            android:text="切换账户"
+            android:textColor="@color/login_activity_login_button_text_color"
+            android:textSize="@dimen/login_activity_login_button_text_size" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/login_activity_toolbar_background_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,10 +15,7 @@ public class TextFragment extends Fragment {
 
     private String mTitle = "DefaultValue";
 
-
-
     @Override
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         Bundle arguments = getArguments();
@@ -28,8 +25,6 @@ public class TextFragment extends Fragment {
             mTitle = arguments.getString(BUNDLE_TITLE);
 
         }
-
-
 
         TextView tv = new TextView(getActivity());
 
@@ -41,13 +36,9 @@ public class TextFragment extends Fragment {
 
         tv.setGravity(Gravity.CENTER);
 
-
-
         return tv;
 
     }
-
-
 
     public static TextFragment newInstance(String title) {
 

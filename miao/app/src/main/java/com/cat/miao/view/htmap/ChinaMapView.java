@@ -16,7 +16,7 @@ import android.view.View;
 
 import com.cat.miao.gesture.ScrollScaleGestureDetector;
 import com.cat.miao.hotmapmodel.TjMapModel;
-import com.cat.miao.hotmapmodel.ProvinceModel;
+import com.cat.miao.hotmapmodel.AreaModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class ChinaMapView extends View {
     private ScrollScaleGestureDetector.OnScrollScaleGestureListener onScrollScaleGestureListener=new ScrollScaleGestureDetector.OnScrollScaleGestureListener() {
         @Override
         public void onClick(float x, float y) {
-            for (ProvinceModel p:map.getProvinceslist()){
+            for (AreaModel p:map.getProvinceslist()){
                 for (Region region:p.getRegionList()){
                     if (region.contains((int)x, (int)y)){
                         map.getProvinceslist().get(selectPosition).setSelect(false);
@@ -150,7 +150,7 @@ public class ChinaMapView extends View {
         map.setMin_x(map.getMin_x()*scale);
         map.setMax_y(map.getMax_y()*scale);
         map.setMin_y(map.getMin_y()*scale);
-            for (ProvinceModel province:map.getProvinceslist()){
+            for (AreaModel province:map.getProvinceslist()){
                 innerPaint.setColor(province.getColor());
                 List<Region> regionList=new ArrayList<>();
                 List<Path> pathList=new ArrayList<>();

@@ -1,5 +1,7 @@
 package com.cat.miao.view;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 
@@ -55,6 +57,15 @@ public class LoginActivity extends AppCompatActivity{
                         if(loginBean.getCode().equals("200")){
                             Intent intent = new Intent();
                             intent.setClass(LoginActivity.this, MainActivity.class);
+
+                            //使用SharedPreference在本地存储用户的登陆状态，其中1代表已登陆；
+                            SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("login_state", "1");
+                            editor.putString("account", mailOrPhone.getText().toString());
+                            editor.apply();
+
+                            //登陆成功，跳转到猫咪界面
                             startActivity(intent);
                         }
                         else if(loginBean.getCode().equals("400")){

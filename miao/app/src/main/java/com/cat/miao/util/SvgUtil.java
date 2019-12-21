@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.Path;
 
 import com.cat.miao.hotmapmodel.TjMapModel;
-import com.cat.miao.hotmapmodel.ProvinceModel;
+import com.cat.miao.hotmapmodel.AreaModel;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -46,10 +46,10 @@ public class SvgUtil {
             NodeList items2 = groot.getElementsByTagName("path");
 
             if (items2.getLength()>0){
-            List<ProvinceModel> list=new ArrayList<>();
+            List<AreaModel> list=new ArrayList<>();
             SvgPathParserUtil svg=new SvgPathParserUtil();
             for (int i=0;i<items2.getLength();i++){
-                ProvinceModel provinceModel =new ProvinceModel();
+                AreaModel provinceModel =new AreaModel();
                 Element ele_Province=(Element)items2.item(i);
                 String PathPoints=ele_Province.getAttribute("d");
                 String name=ele_Province.getAttribute("title");

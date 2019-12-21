@@ -155,4 +155,5 @@
     <dimen name="settings_activity_avatar_button_height">88dp</dimen>
     <dimen name="settings_activity_avatar_button_margin_top">21dp</dimen>
     <dimen name="settings_activity_logged_as_text_view_margin_start">19dp</dimen>
+
 </resources>

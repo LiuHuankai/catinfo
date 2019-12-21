@@ -2,6 +2,7 @@ package com.cat.miao.hotmapmodel;
 
 public class MycolorArea {
     private int color;
+
     private String text;
 
     public int getColor() {

@@ -5,7 +5,7 @@ import android.graphics.Region;
 
 import java.util.List;
 
-public class ProvinceModel {
+public class AreaModel {
     private String name;
     private int color;
     private int linecolor;

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class UserInfoBean {
     private String code;
+
     private String message;
+
     private ArrayList<Result> result;
 
     public String getCode() {
