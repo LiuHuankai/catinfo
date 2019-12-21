@@ -31,7 +31,7 @@ public class LogoutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
-                final String state = sp.getString("sp_user_state", "default");
+                final String state = sp.getString("login_state", "default");
                 logout();
                 if(! state.equals("1")) {
                     Intent intent = new Intent();

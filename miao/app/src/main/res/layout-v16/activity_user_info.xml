@@ -75,7 +75,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/name_text_view"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -84,7 +84,7 @@
                         android:background="?attr/selectableItemBackground"
                         android:fontFamily="@font/fzltxh"
                         android:gravity="center|end"
-                        android:text="雄一分"
+                        android:text=""
                         android:textColor="@color/red"
                         android:textSize="@dimen/settings_activity_my_name_button_text_size"
                         android:textStyle="bold"
@@ -94,62 +94,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/nickname_constraint_layout" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/gender_constraint_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/settings_activity_mail_constraint_layout_height"
-                    android:background="@color/white"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nickname_constraint_layout">
-
-                    <TextView
-                        android:id="@+id/gender_text_view"
-                        android:layout_width="0dp"
-                        android:layout_height="24dp"
-                        android:layout_marginStart="@dimen/settings_activity_nickname_text_view_margin_start"
-                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
-                        android:fontFamily="@font/fzltxh"
-                        android:gravity="start"
-                        android:text="性别"
-                        android:textColor="@color/dark_blue"
-                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/gender_set_text_view"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:background="?attr/selectableItemBackground"
-                        android:fontFamily="@font/fzltxh"
-                        android:gravity="center|end"
-                        android:text="男"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/gender_text_view"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black"
-                    app:layout_constraintBottom_toBottomOf="@+id/gender_constraint_layout" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/license_constraint_layout"
@@ -159,7 +110,7 @@
                     app:layout_constraintHorizontal_weight="1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/gender_constraint_layout">
+                    app:layout_constraintTop_toBottomOf="@+id/nickname_constraint_layout">
 
                     <TextView
                         android:id="@+id/license_text_view"
@@ -169,15 +120,15 @@
                         android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
                         android:fontFamily="@font/fzltxh"
                         android:gravity="start"
-                        android:text="证件号码"
+                        android:text="邮箱"
                         android:textColor="@color/dark_blue"
                         android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/license_set_text_view"
+                    <EditText
+                        android:id="@+id/email_text_view"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginEnd="16dp"
@@ -228,7 +179,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/phone_set_text_view"
                         android:layout_width="0dp"
                         android:layout_height="0dp"

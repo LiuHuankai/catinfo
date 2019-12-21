@@ -21,15 +21,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.LogoutActivity"></activity>
-        <activity android:name=".view.userfragment.NFCRecognize">
-            <intent-filter>
-                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+        <activity android:name=".view.userfragment.CatFeed"></activity>
+        <activity android:name=".view.LogoutActivity" />
+        <activity android:name=".view.userfragment.NFCRecognize"
+                  android:launchMode="singleTop">
 
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="*/*" />
-            </intent-filter>
         </activity>
         <activity android:name=".view.userfragment.AboutUs" />
         <activity android:name=".view.userfragment.UserInfo" />

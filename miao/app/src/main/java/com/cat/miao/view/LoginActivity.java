@@ -58,11 +58,19 @@ public class LoginActivity extends AppCompatActivity{
                             Intent intent = new Intent();
                             intent.setClass(LoginActivity.this, MainActivity.class);
 
-                            //使用SharedPreference在本地存储用户的登陆状态，其中1代表已登陆；
+                            //使用SharedPreference在本地存储用户的登陆状态，其中1代表已登陆,并且获取登陆用户信息；
                             SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("login_state", "1");
                             editor.putString("account", mailOrPhone.getText().toString());
+                            editor.putString("username", loginBean.getResult().getName());
+                            editor.putString("email", loginBean.getResult().getEmail());
+                            editor.putString("phone", loginBean.getResult().getPhone());
+                            editor.putString("headImage", loginBean.getResult().getImage());
+
+                            Log.e("newheadImage", loginBean.getResult().getImage());
+                            Log.e("newname", loginBean.getResult().getName());
+
                             editor.apply();
 
                             //登陆成功，跳转到猫咪界面
@@ -79,11 +87,7 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
     }
-    public void jumptomain(View view){
-        Intent intent = new Intent();
-        intent.setClass(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
+
     public void jumptosignup(View view){
         Intent intent = new Intent();
         intent.setClass(LoginActivity.this, SignupActivity.class);

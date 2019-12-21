@@ -86,8 +86,7 @@ public class RxRetrofitForUserInfo {
     public void updateInfo(final RxRetrofitForUserInfo.UpdateCallBack call){
         //map转json
         Map<String, String> map = new HashMap<>();
-        //map = call.getMap();
-        map.put("name", "熊熊");
+        map = call.getMap();
         Gson gson = new Gson();
         String str = gson.toJson(map);
         RequestBody body = RequestBody.create(MediaType.parse("application/json;"), str);

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import com.cat.miao.network.RxRetrofitForUserInfo;
 import com.cat.miao.util.QnUploadHelper;
 import com.qiniu.android.http.ResponseInfo;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class UserInfo extends AppCompatActivity {
@@ -39,15 +43,11 @@ public class UserInfo extends AppCompatActivity {
 
         initView();
 
+        //初始化toolbar
         toolBarTitle.setText("用户信息");
-
         toolbar.setTitle("  ");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        initQnUp();
-
-        updata();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,20 +55,51 @@ public class UserInfo extends AppCompatActivity {
             }
         });
 
+        initQnUp();
+
     }
 
     private void initView(){
+        EditText nickNameText = (EditText) findViewById(R.id.name_text_view);
+        EditText emailText = (EditText) findViewById(R.id.email_text_view);
+        EditText phoneText = (EditText) findViewById(R.id.phone_set_text_view);
         final ImageView headImage = (ImageView) findViewById(R.id.avatar_image_view);
+
+        SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+        String image = sp.getString("headImage", "default");
         Glide.with(UserInfo.this)
-             .load("http://cat.sparkxyf.cn/test")
+             .load("http://cat.sparkxyf.cn/" + image)
              .into(headImage);
+
+        phoneText.setText(sp.getString("phone", "default"));
+        emailText.setText(sp.getString("email", "default"));
+        nickNameText.setText(sp.getString("username", "default"));
+
     }
 
     private void updata(){
         RxRetrofitForUserInfo.getInstens().updateInfo(new RxRetrofitForUserInfo.UpdateCallBack() {
             @Override
             public Map<String, String> getMap() {
-                return null;
+                EditText nickNameText = (EditText) findViewById(R.id.name_text_view);
+                EditText emailText = (EditText) findViewById(R.id.email_text_view);
+                EditText phoneText = (EditText) findViewById(R.id.phone_set_text_view);
+                Map<String, String> map = new HashMap<>();
+
+                SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("username", nickNameText.getText().toString());
+                editor.putString("email", emailText.getText().toString());
+                editor.putString("phone", phoneText.getText().toString());
+                editor.apply();
+
+                //将要更新的数据打包
+                map.put("image", sp.getString("headImage", "default"));
+                map.put("name", sp.getString("username", "default"));
+                map.put("email", sp.getString("email", "default"));
+                map.put("phone", sp.getString("phone", "default"));
+                return map;
             }
 
             @Override
@@ -115,19 +146,24 @@ public class UserInfo extends AppCompatActivity {
                     ImageView headImage = (ImageView) findViewById(R.id.avatar_image_view);
                     headImage.setImageBitmap(bitmap);
 
-
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
         //初始化七牛云
+        SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+        String key = sp.getString("account", "default");
         QnUploadHelper.init("EeqSGbHhMFs4dE3xjh9VrdOs7616EIen2C2OiLFM", "UhF-yLm12TBTn1xsg6NTXIlkhGQKHhAL8wsgFRgw");
-        QnUploadHelper.uploadPic(photoPath, "test", new QnUploadHelper.UploadCallBack() {
+        QnUploadHelper.uploadPic(photoPath, key, new QnUploadHelper.UploadCallBack() {
             @Override
             public void success(String url) {
                 Log.i("image_url", url);
 
+                SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("headImage", url);
+                editor.apply();
             }
 
             @Override
@@ -136,5 +172,11 @@ public class UserInfo extends AppCompatActivity {
                 Log.e("error", "七牛云牛逼" );
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        updata();
+        super.onDestroy();
     }
 }

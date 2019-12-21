@@ -3,10 +3,34 @@ package com.cat.miao.model;
 public class LoginBean {
     private String code;
     private String message;
-    private Result result;
+    public Result result;
 
-    private class Result{
+    public class Result{
+        private Integer id;
+        public String name;
+        private String password;
+        private Integer gender;
+        public String phone;
+        public String email;
+        private String wxUnionId;
+        public String image;
+        private Integer auth;
 
+        public String getName() {
+            return name;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getPhone() {
+            return phone;
+        }
+
+        public String getImage() {
+            return image;
+        }
     }
 
     public void setCode(String code) {
@@ -23,5 +47,9 @@ public class LoginBean {
 
     public String getMessage() {
         return message;
+    }
+
+    public Result getResult(){
+        return result;
     }
 }

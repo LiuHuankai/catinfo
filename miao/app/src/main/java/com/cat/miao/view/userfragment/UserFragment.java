@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.cat.miao.R;
 import com.cat.miao.model.UserInfoBean;
 import com.cat.miao.network.RxRetrofitForUserInfo;
@@ -34,10 +35,25 @@ public class UserFragment extends Fragment {
         Log.e("error", "在这里");
         View view = inflater.inflate(R.layout.user_fragment, container, false);
         ImageView imageView = (ImageView) view.findViewById(R.id.iv_avatar);
+        TextView userNameTextView = (TextView) view.findViewById(R.id.tv_username);
         TextView toolBarTitle = (TextView)view.findViewById(R.id.toobar_title);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         Button userInfoButton = (Button) view.findViewById(R.id.myinfo);
         Button aboutUsButton = (Button) view.findViewById(R.id.aboutus);
+        Button feedCat = (Button) view.findViewById(R.id.feedcat);
+
+        //如果在登陆状态，则加载用户头像以及名字
+        SharedPreferences sp = getActivity().getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+        final String state = sp.getString("login_state", "default");
+        final String userName = sp.getString("username", "default");
+        final String headImage = sp.getString("headImage", "default");
+        if(state.equals("1")){
+            Glide.with(getActivity())
+                    .load("http://cat.sparkxyf.cn/" + headImage)
+                    .into(imageView);
+
+            userNameTextView.setText(userName);
+        }
 
         //为头像设置点击事件
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -59,10 +75,6 @@ public class UserFragment extends Fragment {
                 }
             }
         });
-
-        //为页面上方toolbar设定标题
-        toolBarTitle.setText("我的");
-        toolbar.setTitle("  ");
 
         //为用户信息按钮设置点击事件
         userInfoButton.setOnClickListener(new View.OnClickListener(){
@@ -90,7 +102,19 @@ public class UserFragment extends Fragment {
             }
         });
 
-        //initdata(view);
+        //为投喂按钮设置点击事件
+        feedCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NFCRecognize.class);
+                startActivity(intent);
+            }
+        });
+
+
+        //为页面上方toolbar设定标题
+        toolBarTitle.setText("我的");
+        toolbar.setTitle("  ");
 
         return view;
     }
