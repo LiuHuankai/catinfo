@@ -3,6 +3,7 @@ package com.cat.miao.view.catfragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,14 @@ public class CatInfoActivity extends AppCompatActivity {
         final TextView kind = (TextView) findViewById(R.id.cat_info_kind);
         final TextView location = (TextView) findViewById(R.id.cat_info_location);
         final TextView remarks = (TextView) findViewById(R.id.cat_info_remarks);
+        final Button button = (Button)findViewById(R.id.cat_adopt_button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("error", "别按了");
+            }
+        });
 
         RxRetrofitForCat.getInstens().getEveryCat(new RxRetrofitForCat.CallBack() {
             @Override
