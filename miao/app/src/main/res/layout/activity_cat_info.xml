@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cat_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/cat_info_scrollview"
+        android:layout_width="0dp"
+        android:layout_height="360dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/setting_scroll_view_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/details_constraint_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cat_info_name_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/settings_activity_nickname_constraint_layout_height"
+                    android:background="@color/white"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp">
+
+                    <TextView
+                        android:id="@+id/cat_info_name_view"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+
+                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="start"
+                        android:text="昵称"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cat_info_name"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="center|end"
+                        android:text="喵喵"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cat_info_name_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/cat_info_name_list" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cat_info_gender_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/settings_activity_mail_constraint_layout_height"
+                    android:background="@color/white"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cat_info_name_list">
+
+                    <TextView
+                        android:id="@+id/cat_info_gender_view"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="start"
+                        android:text="性别"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cat_info_gender"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="center|end"
+                        android:text="雌"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cat_info_gender_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/cat_info_gender_list" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cat_info_color_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/settings_activity_mail_constraint_layout_height"
+                    android:background="@color/white"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cat_info_gender_list">
+
+                    <TextView
+                        android:id="@+id/cat_info_color_view"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="start"
+                        android:text="颜色"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cat_info_color"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="center|end"
+                        android:text="橘"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cat_info_color_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/cat_info_color_list" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cat_info_kind_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/settings_activity_mail_constraint_layout_height"
+                    android:background="@color/white"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cat_info_color_list">
+
+                    <TextView
+                        android:id="@+id/cat_info_kind_view"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="start"
+                        android:text="品种"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cat_info_kind"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="center|end"
+                        android:text="谁知道呢"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cat_info_kind_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/cat_info_kind_list" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cat_info_location_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/settings_activity_mail_constraint_layout_height"
+                    android:background="@color/white"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cat_info_kind_list">
+
+                    <TextView
+                        android:id="@+id/cat_info_location_view"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="start"
+                        android:text="位置"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cat_info_location"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="center|end"
+                        android:text="谁知道呢"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/cat_info_location_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/cat_info_location_list" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cat_info_remarks_list"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/settings_activity_mail_constraint_layout_height"
+                    android:background="@color/white"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cat_info_location_list">
+
+                    <TextView
+                        android:id="@+id/cat_info_remarks_view"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="@dimen/settings_activity_nickname_text_view_margin_start"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="start"
+                        android:text="介绍"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="@dimen/settings_activity_nickname_text_view_text_size"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cat_info_remarks"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/fzltxh"
+                        android:gravity="center|end"
+                        android:text="谁知道呢"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/settings_activity_my_name_button_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/cat_info_remarks_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/cat_info_img"
+        android:layout_width="413dp"
+        android:layout_height="118dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/about_selected" />
+
+    <Button
+        android:id="@+id/cat_adopt_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="想领养！"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cat_info_scrollview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,8 @@
         <activity android:name=".view.userfragment.UserInfo" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.SignupActivity" />
+        <activity android:name=".view.AdoptFragment.AdoptInfoActivity"/>
+        <activity android:name=".view.catfragment.CatInfoActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
