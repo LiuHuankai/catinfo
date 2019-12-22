@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity{
                             editor.putString("email", loginBean.getResult().getEmail());
                             editor.putString("phone", loginBean.getResult().getPhone());
                             editor.putString("headImage", loginBean.getResult().getImage());
+                            editor.putString("id", loginBean.getResult().getId().toString());
 
                             Log.e("newheadImage", loginBean.getResult().getImage());
                             Log.e("newname", loginBean.getResult().getName());

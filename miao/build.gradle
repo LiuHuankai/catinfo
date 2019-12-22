@@ -4,6 +4,12 @@ buildscript {
     repositories {
         maven { url "http://jcenter.bintray.com"}
         maven { url "https://jitpack.io" }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        dependencies {
+            classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.5"
+        }
         google()
         
     }
@@ -15,12 +21,18 @@ buildscript {
     }
 }
 
+plugins {
+    //添加插件信息
+    id "org.sonarqube" version "2.6-rc1"
+}
+
+apply plugin: "org.sonarqube"
+
 allprojects {
     repositories {
         maven { url "http://jcenter.bintray.com"}
         maven { url "https://jitpack.io" }
         google()
-        
     }
 }
 

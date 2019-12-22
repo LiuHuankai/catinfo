@@ -77,7 +77,7 @@ public class UserInfo extends AppCompatActivity {
 
     }
 
-    private void updata(){
+    private void update(){
         RxRetrofitForUserInfo.getInstens().updateInfo(new RxRetrofitForUserInfo.UpdateCallBack() {
             @Override
             public Map<String, String> getMap() {
@@ -176,7 +176,8 @@ public class UserInfo extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        updata();
+        //在用户退出信息界面的时候自动更新用户信息
+        update();
         super.onDestroy();
     }
 }

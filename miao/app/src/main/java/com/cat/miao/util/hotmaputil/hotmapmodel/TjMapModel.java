@@ -1,4 +1,4 @@
-package com.cat.miao.hotmapmodel;
+package com.cat.miao.util.hotmaputil.hotmapmodel;
 
 import java.util.List;
 

@@ -14,9 +14,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.cat.miao.gesture.ScrollScaleGestureDetector;
-import com.cat.miao.hotmapmodel.TjMapModel;
-import com.cat.miao.hotmapmodel.AreaModel;
+import com.cat.miao.util.hotmaputil.gesture.ScrollScaleGestureDetector;
+import com.cat.miao.util.hotmaputil.hotmapmodel.TjMapModel;
+import com.cat.miao.util.hotmaputil.hotmapmodel.AreaModel;
 
 import java.util.ArrayList;
 import java.util.List;

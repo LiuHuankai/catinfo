@@ -1,9 +1,9 @@
-package com.cat.miao.util;
+package com.cat.miao.util.hotmaputil;
 
 import android.graphics.Color;
 
-import com.cat.miao.hotmapmodel.TjMapModel;
-import com.cat.miao.hotmapmodel.AreaModel;
+import com.cat.miao.util.hotmaputil.hotmapmodel.TjMapModel;
+import com.cat.miao.util.hotmaputil.hotmapmodel.AreaModel;
 
 import java.util.HashMap;
 

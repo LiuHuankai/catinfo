@@ -17,17 +17,5 @@
         android:id="@+id/view"
         />
 
-    <com.cat.miao.view.htmap.ColorView
-        android:layout_width="match_parent"
-        android:layout_height="33dp"
-        android:id="@+id/colorView"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textview"
-        android:text="我在"
-        />
-
 
 </LinearLayout>

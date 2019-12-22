@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.cat.miao.hotmapmodel.MycolorArea;
+import com.cat.miao.util.hotmaputil.hotmapmodel.MycolorArea;
 
 import java.util.List;
 
@@ -37,13 +37,13 @@ public void setList(List<MycolorArea> list){
         if (list==null)return;
         if (list.size()>0){
             int width_average=getWidth()/list.size();
-            for (int i=0;i<list.size();i++){
+            /*for (int i=0;i<list.size();i++){
                 colorPaint.setColor(list.get(i).getColor());
-                canvas.drawRect(i * width_average, 0, (i + 1) * width_average, getHeight() / 3, colorPaint);
+                //canvas.drawRect(i * width_average, 0, (i + 1) * width_average, getHeight() / 3, colorPaint);
                 colorPaint.setColor(Color.BLACK);
                 colorPaint.setTextSize(getHeight()/3);
-                canvas.drawText(list.get(i).getText(),width_average/2+i * width_average,getHeight()/3*5/2,colorPaint);
-            }
+                //canvas.drawText(list.get(i).getText(),width_average/2+i * width_average,getHeight()/3*5/2,colorPaint);
+            }*/
         }
         super.onDraw(canvas);
     }

@@ -46,6 +46,7 @@ public class CatFeed extends AppCompatActivity {
     }
 
     public void initView(){
+        //初始化投喂界面将本投喂点的名称、最后投喂时间、投喂次数显示出来，并且为投喂按钮添加点击事件
         final TextView feedPlaceText = (TextView) findViewById(R.id.feedplace_text_view);
         final TextView lastFeedTimeText = (TextView) findViewById(R.id.lastfeedtime_text_view);
         final TextView feedTimesText = (TextView) findViewById(R.id.feedtime_text_view);

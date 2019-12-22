@@ -28,11 +28,13 @@ public class LogoutActivity extends AppCompatActivity {
         LinearLayout changeButton = (LinearLayout) findViewById(R.id.change_account_button);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
+            //登出账号
             @Override
             public void onClick(View v) {
                 SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
                 final String state = sp.getString("login_state", "default");
                 logout();
+                //如果登出成功则跳转到登陆界面
                 if(! state.equals("1")) {
                     Intent intent = new Intent();
                     intent.setClass(LogoutActivity.this, MainActivity.class);
@@ -42,11 +44,13 @@ public class LogoutActivity extends AppCompatActivity {
         });
 
         changeButton.setOnClickListener(new View.OnClickListener() {
+            //切换账号
             @Override
             public void onClick(View v) {
                 SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
                 final String state = sp.getString("login_state", "default");
                 logout();
+                //如果登出成功则跳转到登陆界面
                 if(! state.equals("1")) {
                     Intent intent = new Intent();
                     intent.setClass(LogoutActivity.this, LoginActivity.class);
@@ -69,6 +73,7 @@ public class LogoutActivity extends AppCompatActivity {
         RxRetrofitForLogout.getInstens().getLogoutInfo(new RxRetrofitForLogout.CallBack() {
             @Override
             public Map<String, String> getMap() {
+                    //获得用户账号得到登出依据
                     Map<String, String> map = new HashMap<>();
                     map.put("email", account);
                     return map;

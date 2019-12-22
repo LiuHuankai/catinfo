@@ -1,4 +1,4 @@
-package com.cat.miao.gesture;
+package com.cat.miao.util.hotmaputil.gesture;
 
 import android.graphics.Canvas;
 import android.graphics.Matrix;

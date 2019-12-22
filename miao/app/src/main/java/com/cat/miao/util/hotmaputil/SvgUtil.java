@@ -1,11 +1,12 @@
-package com.cat.miao.util;
+package com.cat.miao.util.hotmaputil;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Path;
 
-import com.cat.miao.hotmapmodel.TjMapModel;
-import com.cat.miao.hotmapmodel.AreaModel;
+import com.cat.miao.util.hotmaputil.SvgPathParserUtil;
+import com.cat.miao.util.hotmaputil.hotmapmodel.TjMapModel;
+import com.cat.miao.util.hotmaputil.hotmapmodel.AreaModel;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

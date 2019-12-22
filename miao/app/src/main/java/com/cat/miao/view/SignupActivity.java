@@ -1,5 +1,7 @@
 package com.cat.miao.view;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 
@@ -46,10 +48,12 @@ public class SignupActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(SignBean signBean){
+                        Log.e("signin", signBean.getMessage() );
                         if(signBean.getCode().equals("200")){
                             RxRetrotifForLogin.getInstens().getLoginInfo(new RxRetrotifForLogin.CallBack() {
                                 @Override
                                 public Map<String, String> getMap() {
+                                    //获取注册必须信息
                                     Map<String, String> map = new HashMap<>();
                                     map.put("password", password.getText().toString());
                                     map.put("email", mail.getText().toString());
@@ -58,12 +62,25 @@ public class SignupActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onSuccess(LoginBean loginBean){
+                                    //注册成功则进行自动登陆
                                     Log.e("error", loginBean.getMessage() );
+                                    if(loginBean.getCode().equals("200")){
+                                        //使用SharedPreference在本地存储用户的登陆状态，其中1代表已登陆,并且获取登陆用户信息；
+                                        SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sp.edit();
+                                        editor.putString("login_state", "1");
+                                        editor.putString("account", mail.getText().toString());
+                                        editor.putString("username", loginBean.getResult().getName());
+                                        editor.putString("email", loginBean.getResult().getEmail());
+                                        editor.putString("phone", loginBean.getResult().getPhone());
+                                        editor.putString("headImage", loginBean.getResult().getImage());
+                                        editor.apply();
+                                        Intent intent = new Intent();
+                                        intent.setClass(SignupActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                    }
                                 }
                             });
-                            Intent intent = new Intent();
-                            intent.setClass(SignupActivity.this, MainActivity.class);
-                            startActivity(intent);
                         }
                     }
                 });
