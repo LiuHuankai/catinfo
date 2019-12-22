@@ -95,6 +95,7 @@ public class AdoptFragment extends Fragment {
      * TODO 模拟数据
      */
     private void initData() {
+        /*
         RxRetrofitForAdoptInfo.getInstens().getAdoptInformation(new RxRetrofitForAdoptInfo.CallBack() {
             @Override
             public void onSuccess(AdoptInfoBean adoptInfoBean) {
@@ -126,5 +127,6 @@ public class AdoptFragment extends Fragment {
 
             }
         });
+         */
     }
 }

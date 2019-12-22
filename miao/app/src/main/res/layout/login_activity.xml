@@ -118,7 +118,6 @@
         android:background="@drawable/login_activity_login_button_ripple"
         android:gravity="center"
         android:orientation="horizontal"
-        android:onClick="jumptomain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="0.89"
         app:layout_constraintLeft_toLeftOf="parent"

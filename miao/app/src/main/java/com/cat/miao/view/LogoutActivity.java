@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LogoutActivity extends AppCompatActivity {
+    Integer choose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +32,9 @@ public class LogoutActivity extends AppCompatActivity {
             //登出账号
             @Override
             public void onClick(View v) {
-                SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
-                final String state = sp.getString("login_state", "default");
+                //如果登出成功则跳转到主界面
+                choose = 1;
                 logout();
-                //如果登出成功则跳转到登陆界面
-                if(! state.equals("1")) {
-                    Intent intent = new Intent();
-                    intent.setClass(LogoutActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
             }
         });
 
@@ -47,15 +42,9 @@ public class LogoutActivity extends AppCompatActivity {
             //切换账号
             @Override
             public void onClick(View v) {
-                SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
-                final String state = sp.getString("login_state", "default");
-                logout();
                 //如果登出成功则跳转到登陆界面
-                if(! state.equals("1")) {
-                    Intent intent = new Intent();
-                    intent.setClass(LogoutActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                }
+                choose = 2;
+                logout();
             }
         });
 
@@ -87,6 +76,17 @@ public class LogoutActivity extends AppCompatActivity {
                 editor.putString("login_state", "2");
                 editor.remove("account");
                 editor.apply();
+
+                //跳转
+                Intent intent = new Intent();
+                if(choose == 1){
+                    intent.setClass(LogoutActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    intent.setClass(LogoutActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
 
                 //输出登出成功信息
                 Log.e("logout", logoutBean.getMessage());
