@@ -36,8 +36,7 @@ public class AdoptFragment extends Fragment {
 
     ArrayList<AdoptInfoBean.Result> infoResult;
     CatBean.Result catinfoResult;
-    ArrayList<String> adoptname;
-    ArrayList<String> adoptimg;
+    int infosize;
 
     public static AdoptFragment getInstance(){
         AdoptFragment adoptFragment = new AdoptFragment();
@@ -67,6 +66,7 @@ public class AdoptFragment extends Fragment {
                 //此处进行监听事件的业务处理
                 //Toast.makeText(getActivity(),"我是item", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), AdoptInfoActivity.class);
+                intent.putExtra("adoptid",data.adoptid);
                 startActivity(intent);
             }
         });
@@ -75,7 +75,26 @@ public class AdoptFragment extends Fragment {
         String userLoginState=sp.getString("login_state","1");
 
         if(userLoginState == "1"){
-            //initData();
+//            RxRetrofitForAdoptInfo.getInstens().getAdoptInformation(new RxRetrofitForAdoptInfo.CallBack() {
+//                @Override
+//                public void onSuccess(AdoptInfoBean adoptInfoBean) {
+//                    infoResult = adoptInfoBean.getResult();
+//                    infosize = infoResult.size();
+//                    Log.e( "infosize",""+infosize);
+//                    for(int i=0;i<infosize;i++){
+//                        Log.e( "testadoptcat",""+i);
+//                        Log.e( "adoptcatID",""+infoResult.get(i).getCatId());
+//                        initData(infoResult.get(i).getCatId());
+//                    }
+//                }
+//
+//                @Override
+//                public void onError() {
+//
+//                }
+//            });
+            initData(2);
+            initData(3);
             Log.e( "登陆成功了: ", userLoginState);
         }
         else{
@@ -94,37 +113,24 @@ public class AdoptFragment extends Fragment {
     /**
      * TODO 模拟数据
      */
-    private void initData() {
-        RxRetrofitForAdoptInfo.getInstens().getAdoptInformation(new RxRetrofitForAdoptInfo.CallBack() {
+    private void initData(int i) {
+//        Log.e( "initData: ", ""+i+" "+infoResult.get(i).getCatId());
+        RxRetrofitForCat.getInstens().getEveryCat(new RxRetrofitForCat.CallBack() {
             @Override
-            public void onSuccess(AdoptInfoBean adoptInfoBean) {
-                infoResult = adoptInfoBean.getResult();
-                int infosize = infoResult.size();
-                for(int i=0;i<infosize;i++){
-                    final AdoptListEntity adoptListEntity = new AdoptListEntity();
-                    RxRetrofitForCat.getInstens().getEveryCat(new RxRetrofitForCat.CallBack() {
-                        @Override
-                        public void onSuccess(CatBean catBean) {
-                            Log.e( "testCat",catBean.getCode());
-                            catinfoResult = catBean.getResult();
-                            adoptListEntity.setAdoptname(catinfoResult.getName());
-                            adoptListEntity.setAdoptimagepath(catinfoResult.getUrl());
-                            adoptListEntity.setAdoptid(catinfoResult.getID());
-                        }
-
-                        @Override
-                        public void onError() {
-
-                        }
-                    },i);
-                }
-
+            public void onSuccess(CatBean catBean) {
+                final AdoptListEntity adoptListEntity = new AdoptListEntity();
+                Log.e( "testCat","testadoptcat"+catBean.getCode());
+                catinfoResult = catBean.getResult();
+                adoptListEntity.setAdoptname(catinfoResult.getName());
+                adoptListEntity.setAdoptimagepath(catinfoResult.getUrl());
+                adoptListEntity.setAdoptid(catinfoResult.getID());
+                adoptEntityList.add(adoptListEntity);
             }
 
             @Override
             public void onError() {
-
+                Log.e( "testCat","死翘翘咯");
             }
-        });
+        },i);
     }
 }

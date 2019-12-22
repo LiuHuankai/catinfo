@@ -1,6 +1,6 @@
 package com.cat.miao.model;
 
-public class AdoptBean {
+public class AdoptPushBean {
     private String code;
     private String message;
     private Result result;
@@ -17,18 +17,15 @@ public class AdoptBean {
         return result;
     }
 
-    public class Result{
-        int adopterId;
-        String blog;
-        int catId;
-        int id;
-
-        public int getCatId(){
-            return catId;
-        }
-
-        public String getBlog(){
-            return blog;
-        }
+    public void setCode(String code) {
+        this.code = code;
     }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public class Result{}
+
+
 }

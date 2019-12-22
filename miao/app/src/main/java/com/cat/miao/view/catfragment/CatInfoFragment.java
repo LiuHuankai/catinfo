@@ -1,6 +1,8 @@
 package com.cat.miao.view.catfragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -78,6 +80,10 @@ public class CatInfoFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        SharedPreferences sp= getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
+        String userid=sp.getString("id","1");
+
         //模拟数据
         initData();
 

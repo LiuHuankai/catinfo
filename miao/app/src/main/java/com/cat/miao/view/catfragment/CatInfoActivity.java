@@ -1,5 +1,7 @@
 package com.cat.miao.view.catfragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,8 @@ public class CatInfoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final int num1 = this.getIntent().getIntExtra("catid",1);
+        SharedPreferences sp= getSharedPreferences("data", Context.MODE_PRIVATE);
+        final String userid=sp.getString("id","1");
 
 
         final ImageView img = (ImageView) findViewById(R.id.cat_info_img);
@@ -85,7 +89,7 @@ public class CatInfoActivity extends AppCompatActivity {
                         map.put("Id", ""+infoResult.getID());
                         map.put("reason", "333555");
                         map.put("status", "1");
-                        map.put("userId", "1");
+                        map.put("userId", userid);
 
                         Log.e("error", ""+infoResult.getID());
                         Log.e("status", "1");
