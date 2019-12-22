@@ -36,8 +36,7 @@ public class AdoptFragment extends Fragment {
 
     ArrayList<AdoptInfoBean.Result> infoResult;
     CatBean.Result catinfoResult;
-    ArrayList<String> adoptname;
-    ArrayList<String> adoptimg;
+    int infosize;
 
     public static AdoptFragment getInstance(){
         AdoptFragment adoptFragment = new AdoptFragment();
@@ -46,11 +45,11 @@ public class AdoptFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.adopt_fragment, container, false);
-        TextView toolBarTitle = (TextView)view.findViewById(R.id.toobar_title);
+        TextView toolBarTitle = (TextView) view.findViewById(R.id.toobar_title);
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         //对recycleview进行配置
         //获取RecyclerView
-        RecyclerView mAdoptRecyclerView=(RecyclerView)this.view.findViewById(R.id.adopt_recycler_view);
+        RecyclerView mAdoptRecyclerView = (RecyclerView) this.view.findViewById(R.id.adopt_recycler_view);
         //创建adapter
         mAdoptRecycleAdapter = new AdoptRecycleAdapter(getActivity(), adoptEntityList);
         //给RecyclerView设置adapter
@@ -59,7 +58,7 @@ public class AdoptFragment extends Fragment {
         //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
         mAdoptRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         //设置item的分割线
-        mAdoptRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+        mAdoptRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         //RecyclerView中没有item的监听事件，需要自己在适配器中写一个监听事件的接口。参数根据自定义
         mAdoptRecycleAdapter.setOnItemClickListener(new AdoptRecycleAdapter.OnItemClickListener() {
             @Override
@@ -67,15 +66,35 @@ public class AdoptFragment extends Fragment {
                 //此处进行监听事件的业务处理
                 //Toast.makeText(getActivity(),"我是item", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), AdoptInfoActivity.class);
+                intent.putExtra("adoptid", data.adoptid);
                 startActivity(intent);
             }
         });
         //模拟数据
-        SharedPreferences sp= getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
-        String userLoginState=sp.getString("login_state","1");
-
+        SharedPreferences sp = getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
+        String userLoginState = sp.getString("login_state", "1");
+        /*
         if(userLoginState == "1"){
-            //initData();
+//            RxRetrofitForAdoptInfo.getInstens().getAdoptInformation(new RxRetrofitForAdoptInfo.CallBack() {
+//                @Override
+//                public void onSuccess(AdoptInfoBean adoptInfoBean) {
+//                    infoResult = adoptInfoBean.getResult();
+//                    infosize = infoResult.size();
+//                    Log.e( "infosize",""+infosize);
+//                    for(int i=0;i<infosize;i++){
+//                        Log.e( "testadoptcat",""+i);
+//                        Log.e( "adoptcatID",""+infoResult.get(i).getCatId());
+//                        initData(infoResult.get(i).getCatId());
+//                    }
+//                }
+//
+//                @Override
+//                public void onError() {
+//
+//                }
+//            });
+            initData(2);
+            initData(3);
             Log.e( "登陆成功了: ", userLoginState);
         }
         else{
@@ -83,50 +102,13 @@ public class AdoptFragment extends Fragment {
             Toast.makeText(getActivity(), "请先登录", Toast.LENGTH_SHORT).show();
         }
 
-
+*/
         //为页面上方toolbar设定标题
         toolBarTitle.setText("我的领养");
         toolbar.setTitle("  ");
 
         return view;
     }
-
-    /**
-     * TODO 模拟数据
-     */
-    private void initData() {
-        /*
-        RxRetrofitForAdoptInfo.getInstens().getAdoptInformation(new RxRetrofitForAdoptInfo.CallBack() {
-            @Override
-            public void onSuccess(AdoptInfoBean adoptInfoBean) {
-                infoResult = adoptInfoBean.getResult();
-                int infosize = infoResult.size();
-                for(int i=0;i<infosize;i++){
-                    final AdoptListEntity adoptListEntity = new AdoptListEntity();
-                    RxRetrofitForCat.getInstens().getEveryCat(new RxRetrofitForCat.CallBack() {
-                        @Override
-                        public void onSuccess(CatBean catBean) {
-                            Log.e( "testCat",catBean.getCode());
-                            catinfoResult = catBean.getResult();
-                            adoptListEntity.setAdoptname(catinfoResult.getName());
-                            adoptListEntity.setAdoptimagepath(catinfoResult.getUrl());
-                            adoptListEntity.setAdoptid(catinfoResult.getID());
-                        }
-
-                        @Override
-                        public void onError() {
-
-                        }
-                    },i);
-                }
-
-            }
-
-            @Override
-            public void onError() {
-
-            }
-        });
-         */
     }
-}
+
+

@@ -1,6 +1,8 @@
 package com.cat.miao.view.catfragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -78,6 +80,10 @@ public class CatInfoFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        SharedPreferences sp= getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
+        String userid=sp.getString("id","1");
+
         //模拟数据
         initData();
 
@@ -141,6 +147,7 @@ public class CatInfoFragment extends Fragment {
                 for (int i=0;i<10;i++){
                     CatListEntity catListEntity=new CatListEntity();
                     catListEntity.setCatid(infoResult.get(i).getID());
+                    Log.e("Catimg: ", i+infoResult.get(i).getUrl());
                     if(infoResult.get(i).getName() == null){
                         catListEntity.setCatname("暂缺");
                     }
@@ -149,7 +156,7 @@ public class CatInfoFragment extends Fragment {
                         catListEntity.setCatname(infoResult.get(i).getName());
                     }
                     if(infoResult.get(i).getUrl() == null){
-                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
+//                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
                         catListEntity.setCatimagepath(infoResult.get(i).getUrl());
 //                        catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
 
