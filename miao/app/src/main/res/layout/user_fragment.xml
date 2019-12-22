@@ -142,7 +142,7 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/setting"
+            android:id="@+id/track"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@android:color/transparent"
@@ -150,7 +150,7 @@
             android:drawablePadding="20dp"
             android:gravity="center_vertical"
             android:paddingLeft="20dp"
-            android:text="@string/mysetting"
+            android:text="猫咪踪迹"
             android:textSize="22sp"
             android:textColor="#a7a7a7"/>
 

@@ -50,7 +50,7 @@ public class AdoptInfoActivity extends AppCompatActivity{
                 finish();
             }
         });
-
+/*
         final int num1 = this.getIntent().getIntExtra("adoptid",1);
 
         SharedPreferences sp= getSharedPreferences("data", Context.MODE_PRIVATE);
@@ -132,6 +132,6 @@ public class AdoptInfoActivity extends AppCompatActivity{
             public void onError() {
 
             }
-        });
+        });*/
     }
 }

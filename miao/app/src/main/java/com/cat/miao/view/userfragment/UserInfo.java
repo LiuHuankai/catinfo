@@ -68,7 +68,7 @@ public class UserInfo extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
         String image = sp.getString("headImage", "default");
         Glide.with(UserInfo.this)
-             .load("http://cat.sparkxyf.cn/" + image)
+             .load("http://q2wxpbxdw.bkt.clouddn.com/" + image)
              .into(headImage);
 
         phoneText.setText(sp.getString("phone", "default"));
@@ -141,6 +141,7 @@ public class UserInfo extends AppCompatActivity {
                     // 最后根据索引值获取图片路径
                     photoPath = cursor.getString(column_index);
 
+                    // 压缩成800*480
                     bitmap = BitmapFactory.decodeFile(photoPath);
 
                     ImageView headImage = (ImageView) findViewById(R.id.avatar_image_view);
@@ -154,16 +155,22 @@ public class UserInfo extends AppCompatActivity {
         //初始化七牛云
         SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
         String key = sp.getString("account", "default");
+        SharedPreferences.Editor editor = sp.edit();
+
         QnUploadHelper.init("EeqSGbHhMFs4dE3xjh9VrdOs7616EIen2C2OiLFM", "UhF-yLm12TBTn1xsg6NTXIlkhGQKHhAL8wsgFRgw");
         QnUploadHelper.uploadPic(photoPath, key, new QnUploadHelper.UploadCallBack() {
             @Override
             public void success(String url) {
                 Log.i("image_url", url);
+                final ImageView headImage = (ImageView) findViewById(R.id.avatar_image_view);
 
                 SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("headImage", url);
                 editor.apply();
+                Glide.with(UserInfo.this)
+                        .load("http://q2wxpbxdw.bkt.clouddn.com/" + url)
+                        .into(headImage);
             }
 
             @Override

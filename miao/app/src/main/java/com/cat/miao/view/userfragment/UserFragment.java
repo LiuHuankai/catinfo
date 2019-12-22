@@ -41,6 +41,7 @@ public class UserFragment extends Fragment {
         Button userInfoButton = (Button) view.findViewById(R.id.myinfo);
         Button aboutUsButton = (Button) view.findViewById(R.id.aboutus);
         Button feedCat = (Button) view.findViewById(R.id.feedcat);
+        Button catTrack = (Button) view.findViewById(R.id.track);
 
         //如果在登陆状态，则加载用户头像以及名字
         SharedPreferences sp = getActivity().getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
@@ -49,7 +50,7 @@ public class UserFragment extends Fragment {
         final String headImage = sp.getString("headImage", "default");
         if(state.equals("1")){
             Glide.with(getActivity())
-                    .load("http://cat.sparkxyf.cn/" + headImage)
+                    .load("http://q2wxpbxdw.bkt.clouddn.com/" + headImage)
                     .into(imageView);
 
             userNameTextView.setText(userName);
@@ -93,8 +94,8 @@ public class UserFragment extends Fragment {
             }
         });
 
-        //为关于我们按钮设置点击事件
-        aboutUsButton.setOnClickListener(new View.OnClickListener() {
+        //为投喂按钮设置点击事件
+        feedCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), NFCRecognize.class);
@@ -102,11 +103,11 @@ public class UserFragment extends Fragment {
             }
         });
 
-        //为投喂按钮设置点击事件
-        feedCat.setOnClickListener(new View.OnClickListener() {
+        //为猫咪踪迹设置点击事件
+        catTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NFCRecognize.class);
+                Intent intent = new Intent(getActivity(), CatTrack.class);
                 startActivity(intent);
             }
         });
@@ -117,23 +118,5 @@ public class UserFragment extends Fragment {
         toolbar.setTitle("  ");
 
         return view;
-    }
-
-    private void initdata(View view){
-        TextView textView = (TextView) view.findViewById(R.id.tv_username);
-        String number = "1111111111@qq.com";
-
-        RxRetrofitForUserInfo.getInstens().getUserInfo(new RxRetrofitForUserInfo.CallBack() {
-            @Override
-            public void onSuccess(UserInfoBean userInfoBean) {
-                Log.e("error", userInfoBean.getCode());
-                Log.e("error", userInfoBean.getResult().get(0).getPhone());
-            }
-
-            @Override
-            public void onError() {
-                Log.e("error", "UserFragment:通讯失败");
-            }
-        }, number);
     }
 }

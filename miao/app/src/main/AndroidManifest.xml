@@ -21,18 +21,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.userfragment.CatFeed"></activity>
+        <activity android:name=".view.userfragment.CatTrack"></activity>
+        <activity android:name=".view.userfragment.CatFeed" />
         <activity android:name=".view.LogoutActivity" />
-        <activity android:name=".view.userfragment.NFCRecognize"
-                  android:launchMode="singleTop">
-
-        </activity>
+        <activity
+            android:name=".view.userfragment.NFCRecognize"
+            android:launchMode="singleTop"></activity>
         <activity android:name=".view.userfragment.AboutUs" />
         <activity android:name=".view.userfragment.UserInfo" />
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.SignupActivity" />
-        <activity android:name=".view.AdoptFragment.AdoptInfoActivity"/>
-        <activity android:name=".view.catfragment.CatInfoActivity"/>
+        <activity android:name=".view.AdoptFragment.AdoptInfoActivity" />
+        <activity android:name=".view.catfragment.CatInfoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

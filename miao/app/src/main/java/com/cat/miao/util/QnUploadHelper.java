@@ -21,7 +21,7 @@ public class QnUploadHelper {
     private static String accessKey;
     //七牛后台的secret
     private static String secretKey;
-    private static String BucketName = "tjmmtm";
+    private static String BucketName = "tongjicat";
     private final static String MAC_NAME = "HmacSHA1";
     private final static String ENCODING = "UTF-8";
     private static Configuration configuration;
