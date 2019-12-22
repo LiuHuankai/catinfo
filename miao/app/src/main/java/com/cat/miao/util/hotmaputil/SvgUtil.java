@@ -34,7 +34,7 @@ public class SvgUtil {
     public SvgUtil(Context context){
         this.context=context;
     }
-    public TjMapModel getProvinces(){
+    public TjMapModel getAreas(){
         TjMapModel map=new TjMapModel();
         try {
             InputStream inputStream= context.getResources().getAssets().open("cathead.svg");

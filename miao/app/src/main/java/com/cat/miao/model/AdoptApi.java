@@ -16,4 +16,8 @@ public interface AdoptApi {
     @PUT("v1/adopt/blog")
 
     Observable<AdoptPushBean> putblog(@Body RequestBody route);
+
+    @POST("v1/adopt/blog")
+
+    Observable<AdoptPostBean> postblog(@Body RequestBody route);
 }

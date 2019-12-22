@@ -1,6 +1,7 @@
 package com.cat.miao.util.hotmaputil.hotmapmodel;
 
 public class MycolorArea {
+
     private int color;
 
     private String text;
@@ -20,4 +21,5 @@ public class MycolorArea {
     public void setText(String text) {
         this.text = text;
     }
+
 }

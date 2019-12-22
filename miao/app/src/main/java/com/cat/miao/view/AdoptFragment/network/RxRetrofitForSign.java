@@ -1,13 +1,10 @@
-package com.cat.miao.network;
+package com.cat.miao.view.AdoptFragment.network;
 
 import android.util.Log;
 
-import com.cat.miao.MyApplication;
-import com.cat.miao.model.ReplyApi;
-import com.cat.miao.model.ReplyBean;
+import com.cat.miao.model.SignBean;
+import com.cat.miao.model.SignupApi;
 import com.google.gson.Gson;
-import com.zhy.http.okhttp.cookie.CookieJarImpl;
-import com.zhy.http.okhttp.cookie.store.PersistentCookieStore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,35 +22,28 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RxRetrofitForReply {
-    private static final String Base_url="http://180.76.234.230:8040/";
-    private static RxRetrofitForReply utils=new RxRetrofitForReply();
-    ReplyApi replyApi;
-
-    public static RxRetrofitForReply getInstens(){
+public class RxRetrofitForSign {
+    private static final String Base_url="http://180.76.234.230:8020/";
+    private static com.cat.miao.network.RxRetrofitForSign utils=new com.cat.miao.network.RxRetrofitForSign();
+    SignupApi signupApi;
+    public static com.cat.miao.network.RxRetrofitForSign getInstens(){
         return utils;
     }
-
-    public RxRetrofitForReply(){
-        CookieJarImpl cookieJar = new CookieJarImpl(new PersistentCookieStore(MyApplication.getInstance()));
-
+    public RxRetrofitForSign(){
         OkHttpClient client=new OkHttpClient.Builder().connectTimeout(5, TimeUnit.SECONDS)
-                .cookieJar(cookieJar)
                 .build();
-
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl(Base_url)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
-
-        replyApi = retrofit.create(ReplyApi.class);
-
-
+        signupApi=retrofit.create(SignupApi.class);
     }
 
-    public void postAdoptReply(final CallBack call){
+    public void getSignInfo(final CallBack call){
+        final SignBean signBeanForReturn = new SignBean();
+
         Map<String, String> map = new HashMap<>();
 
         map = call.getMap();
@@ -62,40 +52,38 @@ public class RxRetrofitForReply {
         String str = gson.toJson(map);
         RequestBody body = RequestBody.create(MediaType.parse("application/json;"), str);
 
-        Observable<ReplyBean> dtoObservable = replyApi.postReply(body);
+        Observable<SignBean> dtoObservable = signupApi.getcall(body);
 
         dtoObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ReplyBean>(){
+                .subscribe(new Observer<SignBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.d("replyBean1","onSubscribe");
-                        Log.d("replyBean2", "onSubscribe");
+
                     }
 
                     @Override
-                    public void onNext(ReplyBean replyBean) {
-                        Log.d("replyBean1",replyBean.getCode());
-                        Log.d("replyBean2", replyBean.getMessage());
-                        call.onSuccess(replyBean);
+                    public void onNext(SignBean signBean) {
+                        Log.d("error",signBean.getCode());
+                        Log.d("error", signBean.getMessage());
+                        call.onSuccess(signBean);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("onError", "死翘翘力");
+                        Log.d("error", "死翘翘");
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d("replyBean1","onComplete");
-                        Log.d("replyBean2", "onComplete");
+
                     }
                 });
     }
 
-    public interface CallBack{
-        void onSuccess(ReplyBean replyBean);
-        Map<String, String> getMap();
+    //这是一个回调接口
+    public interface  CallBack{
+       Map<String, String> getMap();
+       void onSuccess(SignBean signBean);
     }
-
 }

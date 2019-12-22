@@ -1,10 +1,10 @@
-package com.cat.miao.network;
+package com.cat.miao.view.AdoptFragment.network;
 
 import android.util.Log;
 
 import com.cat.miao.MyApplication;
-import com.cat.miao.model.ReplyApi;
-import com.cat.miao.model.ReplyBean;
+import com.cat.miao.model.LoginApi;
+import com.cat.miao.model.LoginBean;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.cookie.CookieJarImpl;
 import com.zhy.http.okhttp.cookie.store.PersistentCookieStore;
@@ -21,23 +21,32 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RxRetrofitForReply {
-    private static final String Base_url="http://180.76.234.230:8040/";
-    private static RxRetrofitForReply utils=new RxRetrofitForReply();
-    ReplyApi replyApi;
+public class RxRetrotifForLogin {
+    private static final String Base_url="http://180.76.234.230:8020/";
+    private static com.cat.miao.network.RxRetrotifForLogin utils=new com.cat.miao.network.RxRetrotifForLogin();
+    LoginApi loginApi;
 
-    public static RxRetrofitForReply getInstens(){
+    public static com.cat.miao.network.RxRetrotifForLogin getInstens(){
         return utils;
     }
 
-    public RxRetrofitForReply(){
+    public RxRetrotifForLogin(){
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
+        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
         CookieJarImpl cookieJar = new CookieJarImpl(new PersistentCookieStore(MyApplication.getInstance()));
 
+        //ClearableCookieJar cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(MyApplication.getInstance()));
+
         OkHttpClient client=new OkHttpClient.Builder().connectTimeout(5, TimeUnit.SECONDS)
+                .readTimeout(45, TimeUnit.SECONDS)
+                .writeTimeout(55, TimeUnit.SECONDS)
+                .addInterceptor(logInterceptor)
                 .cookieJar(cookieJar)
                 .build();
 
@@ -48,12 +57,10 @@ public class RxRetrofitForReply {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
-        replyApi = retrofit.create(ReplyApi.class);
-
-
+        loginApi=retrofit.create(LoginApi.class);
     }
 
-    public void postAdoptReply(final CallBack call){
+    public void getLoginInfo(final CallBack call){
         Map<String, String> map = new HashMap<>();
 
         map = call.getMap();
@@ -62,40 +69,38 @@ public class RxRetrofitForReply {
         String str = gson.toJson(map);
         RequestBody body = RequestBody.create(MediaType.parse("application/json;"), str);
 
-        Observable<ReplyBean> dtoObservable = replyApi.postReply(body);
+        Observable<LoginBean> dtoObservable = loginApi.getcall(body);
 
         dtoObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ReplyBean>(){
+                .subscribe(new Observer<LoginBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Log.d("replyBean1","onSubscribe");
-                        Log.d("replyBean2", "onSubscribe");
+
                     }
 
                     @Override
-                    public void onNext(ReplyBean replyBean) {
-                        Log.d("replyBean1",replyBean.getCode());
-                        Log.d("replyBean2", replyBean.getMessage());
-                        call.onSuccess(replyBean);
+                    public void onNext(LoginBean loginBean) {
+                        Log.d("error",loginBean.getCode());
+                        Log.d("error", loginBean.getMessage());
+                        call.onSuccess(loginBean);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("onError", "死翘翘力");
+                        //Log.d("error", "死翘翘");
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.d("replyBean1","onComplete");
-                        Log.d("replyBean2", "onComplete");
+
                     }
                 });
     }
 
-    public interface CallBack{
-        void onSuccess(ReplyBean replyBean);
+    //这是一个回调接口
+    public interface  CallBack{
         Map<String, String> getMap();
+        void onSuccess(LoginBean loginBean);
     }
-
 }

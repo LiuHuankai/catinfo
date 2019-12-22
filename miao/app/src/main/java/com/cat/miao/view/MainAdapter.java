@@ -29,11 +29,11 @@ public class MainAdapter extends FragmentPagerAdapter {
 
         super(fm);
 
-//        fragments.add(CatFragment.getInstance());
+//      fragments.add(CatFragment.getInstance());
 
         fragments.add(CatInfoFragment.getInstance());
 
-//        fragments.add(TextFragment.newInstance(titles[1]));
+//      fragments.add(TextFragment.newInstance(titles[1]));
 
         fragments.add(AdoptFragment.getInstance());
 

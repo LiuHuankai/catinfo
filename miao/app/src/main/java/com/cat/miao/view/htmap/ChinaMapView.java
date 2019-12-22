@@ -32,19 +32,22 @@ public class ChinaMapView extends View {
     private ScrollScaleGestureDetector.OnScrollScaleGestureListener onScrollScaleGestureListener=new ScrollScaleGestureDetector.OnScrollScaleGestureListener() {
         @Override
         public void onClick(float x, float y) {
+            Integer i = new Integer(0);
             for (AreaModel p:map.getProvinceslist()){
+
                 for (Region region:p.getRegionList()){
                     if (region.contains((int)x, (int)y)){
                         map.getProvinceslist().get(selectPosition).setSelect(false);
                         map.getProvinceslist().get(selectPosition).setLinecolor(Color.GRAY);
                         p.setSelect(true);
                         p.setLinecolor(Color.BLACK);
-                        Log.e("error", "我找到了 " );
+                        Log.e("htmap", i.toString());
                         invalidate();
                         return;
                     }
                 }
-                }
+                i++;
+            }
         }
     };
 

@@ -134,7 +134,6 @@
             android:fontFamily="@font/fzltxh"
             android:gravity="center"
             android:text="@string/login_activity_login_button_text"
-            android:onClick="jumptomain"
             android:textColor="@color/login_activity_login_button_text_color"
             android:textSize="@dimen/login_activity_login_button_text_size" />
     </LinearLayout>

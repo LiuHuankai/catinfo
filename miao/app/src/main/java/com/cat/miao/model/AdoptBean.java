@@ -1,9 +1,11 @@
 package com.cat.miao.model;
 
+import java.util.ArrayList;
+
 public class AdoptBean {
     private String code;
     private String message;
-    private Result result;
+    private ArrayList<Result> result;
 
     public String getCode() {
         return code;
@@ -13,7 +15,7 @@ public class AdoptBean {
         return message;
     }
 
-    public Result getResult() {
+    public ArrayList<Result> getResult() {
         return result;
     }
 
@@ -29,6 +31,10 @@ public class AdoptBean {
 
         public String getBlog(){
             return blog;
+        }
+
+        public int getId(){
+            return id;
         }
     }
 }

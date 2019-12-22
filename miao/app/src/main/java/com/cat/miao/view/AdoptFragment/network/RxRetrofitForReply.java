@@ -1,4 +1,4 @@
-package com.cat.miao.network;
+package com.cat.miao.view.AdoptFragment.network;
 
 import android.util.Log;
 
@@ -27,10 +27,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RxRetrofitForReply {
     private static final String Base_url="http://180.76.234.230:8040/";
-    private static RxRetrofitForReply utils=new RxRetrofitForReply();
+    private static com.cat.miao.network.RxRetrofitForReply utils=new com.cat.miao.network.RxRetrofitForReply();
     ReplyApi replyApi;
 
-    public static RxRetrofitForReply getInstens(){
+    public static com.cat.miao.network.RxRetrofitForReply getInstens(){
         return utils;
     }
 

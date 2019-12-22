@@ -47,7 +47,7 @@ public class CatFragment extends Fragment {
 
     private void initMap() {
         //拿到SVG文件，解析成对象
-        myMap = new SvgUtil(getActivity()).getProvinces();
+        myMap = new SvgUtil(getActivity()).getAreas();
 
         //传数据
         mapview.setMap(myMap);

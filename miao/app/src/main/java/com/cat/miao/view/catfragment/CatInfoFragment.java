@@ -81,7 +81,7 @@ public class CatInfoFragment extends Fragment {
             }
         });
 
-        SharedPreferences sp= getActivity().getSharedPreferences("data", Context.MODE_PRIVATE);
+        SharedPreferences sp= getActivity().getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
         String userid=sp.getString("id","1");
 
         //模拟数据
@@ -194,8 +194,7 @@ public class CatInfoFragment extends Fragment {
                     if(infoResult.get(i).getUrl() == null){
                         Log.e("Catimg: ", i+infoResult.get(i).getUrl());
                         catListEntity.setCatimagepath(infoResult.get(i).getUrl());
-//                        catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
-
+                        //catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
                     }
                     catEntityList.add(catListEntity);
                 }

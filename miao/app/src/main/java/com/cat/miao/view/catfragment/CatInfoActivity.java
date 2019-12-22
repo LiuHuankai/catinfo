@@ -19,7 +19,6 @@ import com.cat.miao.model.CatBean;
 import com.cat.miao.model.ReplyBean;
 import com.cat.miao.network.RxRetrofitForCat;
 import com.cat.miao.network.RxRetrofitForReply;
-import com.cat.miao.view.LoginActivity;
 
 import java.util.HashMap;
 import java.util.Map;
