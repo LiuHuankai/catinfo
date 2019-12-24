@@ -15,25 +15,11 @@ public class MainAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments = new ArrayList<>();
 
-    private String[] titles = {//
-
-            "第一页\n\n重点看下面的的图标是渐变色，随着滑动距离的增加，颜色逐渐过度",//
-
-            "第二页\n\n重点看下面的的图标是渐变色，随着滑动距离的增加，颜色逐渐过度",//
-
-            "第三页\n\n重点看下面的的图标是渐变色，随着滑动距离的增加，颜色逐渐过度", //
-
-            "第四页\n\n重点看下面的的图标是渐变色，随着滑动距离的增加，颜色逐渐过度"};
-
     public MainAdapter(FragmentManager fm) {
 
         super(fm);
 
-//      fragments.add(CatFragment.getInstance());
-
         fragments.add(CatInfoFragment.getInstance());
-
-//      fragments.add(TextFragment.newInstance(titles[1]));
 
         fragments.add(AdoptFragment.getInstance());
 

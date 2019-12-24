@@ -4,16 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.cat.miao.*;
 import com.cat.miao.util.hotmaputil.ColorChangeUtil;
 import com.cat.miao.util.hotmaputil.SvgUtil;
 import com.cat.miao.util.hotmaputil.hotmapmodel.TjMapModel;
-import com.cat.miao.view.htmap.ChinaMapView;
+import com.cat.miao.view.htmap.TjMapView;
 
 public class CatTrack extends AppCompatActivity {
-    private ChinaMapView mapview;
+    private TjMapView mapview;
     private TjMapModel myMap;
 
     @Override
@@ -23,16 +24,19 @@ public class CatTrack extends AppCompatActivity {
 
         TextView toolBarTitle = (TextView) findViewById(R.id.toobar_title);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mapview = (ChinaMapView) findViewById(R.id.view);
+        mapview = (TjMapView) findViewById(R.id.view);
 
         //初始化热图,并且设置热图事件
         initMap();
         ColorChangeUtil.changeMapColors(myMap, ColorChangeUtil.nameStrings[0]);
         mapview.chingeMapColors();
-        mapview.setOnChoseProvince(new ChinaMapView.onProvinceClickLisener(){
-            @Override
-            public void onChose(String provincename){
 
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

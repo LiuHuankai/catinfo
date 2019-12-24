@@ -49,9 +49,8 @@ public class AdoptRecycleAdapter extends RecyclerView.Adapter<AdoptRecycleAdapte
         //根据点击位置绑定数据
         AdoptListEntity data = adoptEntityList.get(position);
         //        holder.catimg;
-        Glide.with(context).load(data.adoptimagepath).into(holder.adoptimg);
+        Glide.with(context).load("http://q2wxpbxdw.bkt.clouddn.com/"+data.adoptimagepath).into(holder.adoptimg);
         holder.adoptname.setText(data.adoptname);//获取实体类中的name字段并设置
-
     }
 
     /**

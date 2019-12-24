@@ -1,6 +1,7 @@
 package com.cat.miao.view.catfragment;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -49,7 +50,8 @@ public class CatRecycleAdapter extends RecyclerView.Adapter<CatRecycleAdapter.ca
     public void onBindViewHolder(catViewHolder holder, int position) {
         //根据点击位置绑定数据
         CatListEntity data = catEntityList.get(position);
-        Glide.with(context).load(data.catimagepath).into(holder.catimg);
+        //Log.e("位置image路径", data.catimagepath );
+        Glide.with(context).load("http://q2wxpbxdw.bkt.clouddn.com/"+data.catimagepath).into(holder.catimg);
         holder.catname.setText(data.catname);//获取实体类中的name字段并设置
     }
 

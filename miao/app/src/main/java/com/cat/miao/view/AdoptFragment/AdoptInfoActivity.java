@@ -149,7 +149,14 @@ public class AdoptInfoActivity extends AppCompatActivity{
                 else{
                     name.setText("暂缺");
                 }
-                Glide.with(AdoptInfoActivity.this).load(catinfoResult.getUrl()).into(img);
+
+                String url = catinfoResult.getUrl();
+                String m = url.substring(url.length()-1,url.length());
+                url = url.substring(0,url.length()-1);
+                int i = Integer.parseInt(m);
+                i--;
+                url = url+i;
+                Glide.with(AdoptInfoActivity.this).load("http://q2wxpbxdw.bkt.clouddn.com/"+url).into(img);
 
 
             }

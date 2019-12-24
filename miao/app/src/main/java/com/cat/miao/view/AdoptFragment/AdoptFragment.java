@@ -26,6 +26,7 @@ import com.cat.miao.network.RxRetrofitForAdoptInfo;
 import com.cat.miao.network.RxRetrofitForCat;
 
 import java.util.ArrayList;
+import java.util.concurrent.Delayed;
 
 public class AdoptFragment extends Fragment {
     private View view;//定义view用来设置fragment的layout
@@ -80,13 +81,19 @@ public class AdoptFragment extends Fragment {
                 @Override
                 public void onSuccess(AdoptInfoBean adoptInfoBean) {
                     infoResult = adoptInfoBean.getResult();
-                    if(infoResult.isEmpty()==false){
+                    if(adoptInfoBean.getCode().equals("200")){
                         infosize = infoResult.size();
                         Log.e( "infosize",""+infosize);
                         for(int i=0;i<infosize;i++){
-                            Log.e( "testadoptcat",""+i);
-                            Log.e( "adoptcatID",""+infoResult.get(i).getCatId());
-                            initData(infoResult.get(i).getCatId());
+                            try{
+                                Log.e( "testadoptcat",""+i);
+                                Log.e( "adoptcatID",""+infoResult.get(i).getCatId());
+                                initData(infoResult.get(i).getCatId());
+                                Thread.currentThread().sleep(500);
+                            }
+                            catch (Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -121,7 +128,7 @@ public class AdoptFragment extends Fragment {
         RxRetrofitForCat.getInstens().getEveryCat(new RxRetrofitForCat.CallBack() {
             @Override
             public void onSuccess(CatBean catBean) {
-                final AdoptListEntity adoptListEntity = new AdoptListEntity();
+                AdoptListEntity adoptListEntity = new AdoptListEntity();
                 Log.e( "testadoptcat222333","进来了");
                 catinfoResult = catBean.getResult();
                 if(catinfoResult.getName() != null){
@@ -130,7 +137,15 @@ public class AdoptFragment extends Fragment {
                 else{
                     adoptListEntity.setAdoptname("暂缺");
                 }
-                adoptListEntity.setAdoptimagepath(catinfoResult.getUrl());
+                String url = catinfoResult.getUrl();
+                Log.e( "url: ", url);
+                String m = url.substring(url.length()-1,url.length());
+                url = url.substring(0,url.length()-1);
+                int i = Integer.parseInt(m);
+                i--;
+                url = url+i;
+                Log.e( "url: ", url);
+                adoptListEntity.setAdoptimagepath(url);
                 adoptListEntity.setAdoptid(catinfoResult.getID());
 
                 adoptEntityList.add(adoptListEntity);

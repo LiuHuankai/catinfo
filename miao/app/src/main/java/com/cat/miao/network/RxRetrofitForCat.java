@@ -1,15 +1,20 @@
 package com.cat.miao.network;
 
+import android.util.Log;
+
 import com.cat.miao.MyApplication;
 import com.cat.miao.model.CatApi;
 import com.cat.miao.model.CatBean;
+import com.cat.miao.model.CatInfoBean;
 import com.zhy.http.okhttp.cookie.CookieJarImpl;
 import com.zhy.http.okhttp.cookie.store.PersistentCookieStore;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
@@ -50,17 +55,25 @@ public class RxRetrofitForCat {
 
         dtoObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<CatBean>() {
+                .subscribe(new Observer<CatBean>() {
                     @Override
-                    public void accept(CatBean catBean) throws Exception {
-                        if(catBean==null)
-                        {
-                            call.onError();
-                        }
-                        else
-                        {
-                            call.onSuccess(catBean);
-                        }
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(CatBean catBean) {
+                        call.onSuccess(catBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("track", "获取");
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

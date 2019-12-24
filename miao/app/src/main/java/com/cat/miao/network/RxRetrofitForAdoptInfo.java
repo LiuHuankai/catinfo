@@ -45,7 +45,7 @@ public class RxRetrofitForAdoptInfo {
 
     }
 
-    public void getAdoptInformation(final RxRetrofitForAdoptInfo.CallBack call){
+    public void getAdoptInformation(final CallBack call){
         Observable<AdoptInfoBean> dtoObservable= adoptInfoApi.getAdoptInfo();
 
         dtoObservable.subscribeOn(Schedulers.io())

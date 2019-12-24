@@ -13,15 +13,19 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
+import com.cat.miao.model.CatInfoBean;
+import com.cat.miao.network.RxRetrofitForCatInfo;
 import com.cat.miao.util.hotmaputil.gesture.ScrollScaleGestureDetector;
 import com.cat.miao.util.hotmaputil.hotmapmodel.TjMapModel;
 import com.cat.miao.util.hotmaputil.hotmapmodel.AreaModel;
+import com.cat.miao.view.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChinaMapView extends View {
+public class TjMapView extends View {
     private float viewWidth;
     private Paint innerPaint,outerPaint;
     private boolean isFirst;
@@ -42,6 +46,52 @@ public class ChinaMapView extends View {
                         p.setSelect(true);
                         p.setLinecolor(Color.BLACK);
                         Log.e("htmap", i.toString());
+
+                        if(i == 2){
+                            RxRetrofitForCatInfo.getInstens().getInfoByLocate(new RxRetrofitForCatInfo.CallBack() {
+                                @Override
+                                public void onSuccess(CatInfoBean catInfoBean) {
+                                    Integer temp = catInfoBean.getResult().size();
+                                    String num = temp.toString();
+                                    Toast.makeText(getRootView().getContext(), "南区" + "  有"+num+"只猫经常在这活动", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onError() {
+
+                                }
+                            }, 1, "南区", 30);
+                        }else if(i == 0){
+                            RxRetrofitForCatInfo.getInstens().getInfoByLocate(new RxRetrofitForCatInfo.CallBack() {
+                                @Override
+                                public void onSuccess(CatInfoBean catInfoBean) {
+                                    Integer temp = catInfoBean.getResult().size();
+                                    String num = temp.toString();
+                                    Toast.makeText(getRootView().getContext(), "教学区" + "  有"+num+"只猫经常在这活动", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onError() {
+
+                                }
+                            }, 1, "教学区", 30);
+                        }else if(i == 1){
+                            RxRetrofitForCatInfo.getInstens().getInfoByLocate(new RxRetrofitForCatInfo.CallBack() {
+                                @Override
+                                public void onSuccess(CatInfoBean catInfoBean) {
+                                    Integer temp = catInfoBean.getResult().size();
+                                    String num = temp.toString();
+                                    Log.e("test", num );
+                                    Toast.makeText(getRootView().getContext(), "北区" + "  有"+num+"只猫经常在这活动", Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onError() {
+
+                                }
+                            }, 1, "北区", 30);
+                        }
+
                         invalidate();
                         return;
                     }
@@ -52,14 +102,14 @@ public class ChinaMapView extends View {
     };
 
     private onProvinceClickLisener onProvinceClickLisener;
-    public ChinaMapView(Context context) {
+    public TjMapView(Context context) {
         super(context);
     }
     public void setOnChoseProvince(onProvinceClickLisener lisener){
         this.onProvinceClickLisener=lisener;
     }
     //初始化准备工作
-    public ChinaMapView(Context context, AttributeSet attrs) {
+    public TjMapView(Context context, AttributeSet attrs) {
         super(context, attrs);
         innerPaint=new Paint();
         innerPaint.setColor(Color.BLUE);
@@ -71,7 +121,7 @@ public class ChinaMapView extends View {
         outerPaint.setStyle(Paint.Style.STROKE);
         scrollScaleGestureDetector=new ScrollScaleGestureDetector(this,onScrollScaleGestureListener);
     }
-    public ChinaMapView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TjMapView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -198,5 +248,9 @@ public class ChinaMapView extends View {
 
     public interface onProvinceClickLisener{
         public void onChose(String provincename);
+    }
+
+    public interface onClickListener{
+        public void onClick(Integer i);
     }
 }

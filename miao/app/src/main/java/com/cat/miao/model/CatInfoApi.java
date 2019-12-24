@@ -11,4 +11,7 @@ public interface CatInfoApi {
     @GET("v1/cats")
     Observable<CatInfoBean> getSearchInfo(@Query("curPage") int pagenumber, @Query("name") String name, @Query("pageSize") int sizenumber);
 
+    @GET("v1/cats")
+    Observable<CatInfoBean> getInfoByLocation(@Query("curPage") int pagenumner, @Query("location") String location, @Query("pageSize") int sizenumber);
+
 }

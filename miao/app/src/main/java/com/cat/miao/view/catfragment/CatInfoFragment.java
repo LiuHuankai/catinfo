@@ -107,6 +107,7 @@ public class CatInfoFragment extends Fragment {
                 flag++;
                 Log.e("flag: ",""+flag );
                 initData();
+                mCatRecycleAdapter.notifyDataSetChanged();
                 refreshlayout.finishLoadMore(500/*,false*/);//传入false表示加载失败
             }
         });
@@ -157,9 +158,19 @@ public class CatInfoFragment extends Fragment {
                     }
                     if(infoResult.get(i).getUrl() == null){
 //                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
-                        catListEntity.setCatimagepath(infoResult.get(i).getUrl());
+                        Log.e("别搞我，Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
 //                        catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
 
+                    }
+                    else{
+                        Log.e("Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
+                        String url = infoResult.get(i).getUrl();
+                        String m = url.substring(url.length()-1,url.length());
+                        url = url.substring(0,url.length()-1);
+                        int flag = Integer.parseInt(m);
+                        flag--;
+                        url = url+flag;
+                        catListEntity.setCatimagepath(url);
                     }
 
                     catEntityList.add(catListEntity);
@@ -192,9 +203,20 @@ public class CatInfoFragment extends Fragment {
                         catListEntity.setCatname(infoResult.get(i).getName());
                     }
                     if(infoResult.get(i).getUrl() == null){
-                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
-                        catListEntity.setCatimagepath(infoResult.get(i).getUrl());
-                        //catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
+//                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
+                        Log.e("别搞我，Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
+//                        catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
+
+                    }
+                    else{
+                        Log.e("Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
+                        String url = infoResult.get(i).getUrl();
+                        String m = url.substring(url.length()-1,url.length());
+                        url = url.substring(0,url.length()-1);
+                        int flag = Integer.parseInt(m);
+                        flag--;
+                        url = url+flag;
+                        catListEntity.setCatimagepath(url);
                     }
                     catEntityList.add(catListEntity);
                 }

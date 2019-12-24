@@ -30,6 +30,8 @@ public class UserFragment extends Fragment {
         return userFragment;
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         Log.e("error", "在这里");

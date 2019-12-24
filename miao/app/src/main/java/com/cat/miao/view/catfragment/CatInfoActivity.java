@@ -111,7 +111,16 @@ public class CatInfoActivity extends AppCompatActivity {
                 gender.setText(infoResult.getGender());
                 remarks.setText(infoResult.getRemarks());
                 Log.e( "id+UUURRRRLLLL: ", num1+infoResult.getUrl());
-                Glide.with(CatInfoActivity.this).load(infoResult.getUrl()).into(img);
+
+
+                String url = infoResult.getUrl();
+                String m = url.substring(url.length()-1,url.length());
+                url = url.substring(0,url.length()-1);
+                int i = Integer.parseInt(m);
+                i--;
+                url = url+i;
+                Log.e( "url: ", url);
+                Glide.with(CatInfoActivity.this).load("http://q2wxpbxdw.bkt.clouddn.com/"+url).into(img);
             }
 
             @Override

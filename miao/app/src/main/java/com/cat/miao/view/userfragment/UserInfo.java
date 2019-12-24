@@ -20,10 +20,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.cat.miao.MainActivity;
 import com.cat.miao.R;
 import com.cat.miao.model.UserInfoUpdateBean;
 import com.cat.miao.network.RxRetrofitForUserInfo;
 import com.cat.miao.util.QnUploadHelper;
+import com.cat.miao.view.LoginActivity;
+import com.cat.miao.view.SignupActivity;
 import com.qiniu.android.http.ResponseInfo;
 
 import java.util.HashMap;
@@ -67,6 +70,7 @@ public class UserInfo extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("sp_user_state", Context.MODE_PRIVATE);
         String image = sp.getString("headImage", "default");
+        Log.e("init", image);
         Glide.with(UserInfo.this)
              .load("http://q2wxpbxdw.bkt.clouddn.com/" + image)
              .into(headImage);
@@ -185,6 +189,10 @@ public class UserInfo extends AppCompatActivity {
     protected void onDestroy() {
         //在用户退出信息界面的时候自动更新用户信息
         update();
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+
+        startActivity(intent);
         super.onDestroy();
     }
 }
