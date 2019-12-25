@@ -30,12 +30,11 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 
-;
 
 public class CatInfoFragment extends Fragment {
     private int flag = 1;
     ArrayList<CatInfoBean.Result> infoResult;
-//    CatListEntity catListEntity=new CatListEntity();
+    //CatListEntity catListEntity=new CatListEntity();
     private View view;//定义view用来设置fragment的layout
     //定义以AdoptListEntity实体类为对象的数据集合
     private ArrayList<CatListEntity> catEntityList = new ArrayList<CatListEntity>();
@@ -71,12 +70,9 @@ public class CatInfoFragment extends Fragment {
             @Override
             public void OnItemClick(View view, CatListEntity data) {
                 //此处进行监听事件的业务处理
-                //Toast.makeText(getActivity(),"我是item", Toast.LENGTH_SHORT).show();
                 Log.e( "OnItemClick: ", ""+data.catid);
-
                 Intent intent = new Intent(getActivity(), CatInfoActivity.class);
                 intent.putExtra("catid",data.catid);
-
                 startActivity(intent);
             }
         });
@@ -149,17 +145,15 @@ public class CatInfoFragment extends Fragment {
                     CatListEntity catListEntity=new CatListEntity();
                     catListEntity.setCatid(infoResult.get(i).getID());
                     Log.e("Catimg: ", i+infoResult.get(i).getUrl());
+                    //检查搜索的属性值是否存在
                     if(infoResult.get(i).getName() == null){
                         catListEntity.setCatname("暂缺");
                     }
                     else {
-                        Log.e("Catname: ", i+infoResult.get(i).getName());
                         catListEntity.setCatname(infoResult.get(i).getName());
                     }
                     if(infoResult.get(i).getUrl() == null){
-//                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
-                        Log.e("别搞我，Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
-//                        catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
+                        //Log.e("Catimg: ", i+infoResult.get(i).getUrl());
 
                     }
                     else{
@@ -204,11 +198,9 @@ public class CatInfoFragment extends Fragment {
                     }
                     if(infoResult.get(i).getUrl() == null){
 //                        Log.e("Catimg: ", i+infoResult.get(i).getUrl());
-                        Log.e("别搞我，Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
-//                        catListEntity.setCatimagepath("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg");
-
                     }
                     else{
+                        //初始化Url
                         Log.e("Catimg炸了吗？: ", i+infoResult.get(i).getUrl());
                         String url = infoResult.get(i).getUrl();
                         String m = url.substring(url.length()-1,url.length());

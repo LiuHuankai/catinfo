@@ -82,7 +82,7 @@ public class RxRetrofitForReply {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("onError", "死翘翘力");
+                        Log.d("onError", "失败");
                     }
 
                     @Override

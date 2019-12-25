@@ -51,6 +51,7 @@ public class CatRecycleAdapter extends RecyclerView.Adapter<CatRecycleAdapter.ca
         //根据点击位置绑定数据
         CatListEntity data = catEntityList.get(position);
         //Log.e("位置image路径", data.catimagepath );
+        //设置image路径
         Glide.with(context).load("http://q2wxpbxdw.bkt.clouddn.com/"+data.catimagepath).into(holder.catimg);
         holder.catname.setText(data.catname);//获取实体类中的name字段并设置
     }

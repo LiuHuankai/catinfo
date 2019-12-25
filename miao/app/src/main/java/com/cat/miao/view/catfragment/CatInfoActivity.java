@@ -59,7 +59,6 @@ public class CatInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.e("error", "别按了");
-                //Toast.makeText(CatInfoActivity.this, "申请成功???", Toast.LENGTH_SHORT).show();
                 RxRetrofitForReply.getInstens().postAdoptReply(new RxRetrofitForReply.CallBack() {
                     @Override
                     public void onSuccess(ReplyBean replyBean) {
@@ -110,9 +109,9 @@ public class CatInfoActivity extends AppCompatActivity {
                 location.setText(infoResult.getLocation());
                 gender.setText(infoResult.getGender());
                 remarks.setText(infoResult.getRemarks());
-                Log.e( "id+UUURRRRLLLL: ", num1+infoResult.getUrl());
 
 
+                //Url的初始化
                 String url = infoResult.getUrl();
                 String m = url.substring(url.length()-1,url.length());
                 url = url.substring(0,url.length()-1);
@@ -128,10 +127,6 @@ public class CatInfoActivity extends AppCompatActivity {
 
             }
         },num1);
-//        Log.e("信息界面的URL: ", infoResult.getUrl());
-
-//        Glide.with(this).load(infoResult.getUrl()).into(img);
-//        Glide.with(this).load("http://img1.imgtn.bdimg.com/it/u=697661107,2424028308&fm=26&gp=0.jpg").into(img);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

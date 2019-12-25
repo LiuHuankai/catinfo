@@ -153,7 +153,7 @@ public class AdoptFragment extends Fragment {
 
             @Override
             public void onError() {
-                Log.e( "testCat","死翘翘咯");
+                Log.e( "testCat","失败");
             }
         },i);
     }

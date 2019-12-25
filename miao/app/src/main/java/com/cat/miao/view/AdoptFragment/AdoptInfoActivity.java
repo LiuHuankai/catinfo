@@ -66,46 +66,7 @@ public class AdoptInfoActivity extends AppCompatActivity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("更新blog", "别按了");
-                //Toast.makeText(CatInfoActivity.this, "申请成功???", Toast.LENGTH_SHORT).show();
-//                if(infoResult == null){
-//
-//                }
-//                else{
-//                    RxRetrofitForAdopt.getInstens().pushblogs(new RxRetrofitForAdopt.PushCallBack() {
-//                        @Override
-//                        public void onSuccess(AdoptPushBean adoptPushBean) {
-//                            Log.e("push成功了吗？", adoptPushBean.getCode());
-//                            if(adoptPushBean.getCode().equals("200")){
-//                                Toast.makeText(AdoptInfoActivity.this, "更新成功！", Toast.LENGTH_SHORT).show();
-//                                update();
-//                            }
-//                            else if(adoptPushBean.getCode().equals("401")){
-//                                Toast.makeText(AdoptInfoActivity.this, "请先登录！", Toast.LENGTH_SHORT).show();
-//                            }
-//                            else{
-//                                Log.e("失败了", adoptPushBean.getCode());
-//                                Toast.makeText(AdoptInfoActivity.this, "更新失败！", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//
-//                        @Override
-//                        public Map<String, String> getMap() {
-//                            Map<String, String> map = new HashMap<>();
-//                            map.put("adopterId", userid);
-//                            map.put("blog", newBlog.getText().toString());
-//                            map.put("catId", ""+catinfoResult.getID());
-//                            map.put("id", ""+catinfoResult.getID());
-//
-//                            Log.e("adopterId", userid);
-//                            Log.e("catId", ""+catinfoResult.getID());
-//                            Log.e("blog", "blog"+newBlog.getText().toString());
-//                            return map;
-//                        }
-//                    });
-//                }
-
-
+                //更新blog
                 RxRetrofitForAdopt.getInstens().postblogs(new RxRetrofitForAdopt.PostCallback() {
                     @Override
                     public void onSuccess(AdoptPostBean adoptPostBean) {
@@ -130,7 +91,6 @@ public class AdoptInfoActivity extends AppCompatActivity{
                         map.put("blog", newBlog.getText().toString());
                         map.put("catId", ""+catinfoResult.getID());
                         map.put("id", ""+catinfoResult.getID());
-
                         return map;
                     }
                 });
@@ -149,7 +109,7 @@ public class AdoptInfoActivity extends AppCompatActivity{
                 else{
                     name.setText("暂缺");
                 }
-
+                //初始化Url
                 String url = catinfoResult.getUrl();
                 String m = url.substring(url.length()-1,url.length());
                 url = url.substring(0,url.length()-1);
@@ -158,7 +118,6 @@ public class AdoptInfoActivity extends AppCompatActivity{
                 url = url+i;
                 Glide.with(AdoptInfoActivity.this).load("http://q2wxpbxdw.bkt.clouddn.com/"+url).into(img);
 
-
             }
 
             @Override
@@ -166,7 +125,7 @@ public class AdoptInfoActivity extends AppCompatActivity{
 
             }
         },num1);
-
+        //初始化渲染数据
         update();
     }
 
@@ -177,23 +136,8 @@ public class AdoptInfoActivity extends AppCompatActivity{
             public void onSuccess(AdoptBean adoptBean) {
                 final TextView blog = (TextView) findViewById(R.id.adopt_blog);
                 Log.e( "testAdoptblog","我在success里了！");
+                //判断数据是否存在
                 if(adoptBean.getCode().equals("200")){
-//                    Log.e( "infoResult.size",""+infoResult.size());
-
-//                    int m=0;
-//                    infoResult = adoptBean.getResult();
-//                    for(int i=infoResult.size()-1;i>=0;i++){
-//                        Log.e( "catinfoResult.getID()",""+catinfoResult.getID());
-//                        Log.e( "get(i).getCatId()",""+i+infoResult.get(i).getCatId());
-//                        if(infoResult.get(i).getCatId() == catinfoResult.getID()){
-//                            blog.setText(infoResult.get(i).getBlog());
-//                            m=1;
-//                            break;
-//                        }
-//                    }
-//                    if(m==0){
-//                        blog.setText("您还没有发表过博客");
-//                    }
                     infoResult = adoptBean.getResult();
                     blog.setText(infoResult.get(infoResult.size()-1).getBlog());
                 }
@@ -208,7 +152,7 @@ public class AdoptInfoActivity extends AppCompatActivity{
 
             @Override
             public void onError() {
-                Log.e( "testAdoptblog","这不是乱死？");
+                Log.e( "testAdoptblog","失败");
             }
         });
     }
